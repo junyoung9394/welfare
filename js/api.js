@@ -8,7 +8,7 @@
  *   3. searchBokjiro('청년 월세') 형태로 호출
  */
 
-const BOKJIRO_API_KEY = 'YOUR_API_KEY_HERE'; // ← 여기에 복지로 API 키 입력
+const BOKJIRO_API_KEY = 'sUl0xfEp9wcBrWjayiTv5+ixiC9mwyYp7+47Ezx/Ux6W3cfOL2f1PdOaKwvDcSK2QuSrs8A9QPf90w/vpI9r/w==';
 
 const BOKJIRO_BASE_URL = 'https://www.bokjiro.go.kr/ssis-tbu/twatd/openapi/selectWlfInfo.do';
 
