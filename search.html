@@ -176,8 +176,10 @@
   </div>
 </footer>
 
+<script src="js/api.js"></script>
 <script>
-const ALL_BENEFITS = [
+// ===== 로컬 데이터 (API 키 없을 때 폴백) =====
+const LOCAL_BENEFITS = [
   { title: "2026 청년 월세 지원금 — 월 최대 20만원", tags: ["청년"], cat: "주거", icon: "🏠", url: "posts/청년-월세-지원금-2026.html", desc: "만 19~34세 무주택 청년, 월 최대 20만원·12개월 지원", age: "youth", income: "60" },
   { title: "청년도약계좌 — 5년 최대 5,000만원", tags: ["청년"], cat: "저축", icon: "💰", url: "posts/청년도약계좌-2026.html", desc: "월 70만원 납입 시 정부 기여금 포함 5,000만원 목돈 마련", age: "youth", income: "120" },
   { title: "청년내일저축계좌 — 정부 3배 적립", tags: ["청년"], cat: "저축", icon: "🏦", url: "posts/청년내일저축계좌-2026.html", desc: "월 10만원 저축 시 정부 최대 30만원 추가 지원", age: "youth", income: "100" },
@@ -190,38 +192,82 @@ const ALL_BENEFITS = [
   { title: "소상공인 정책자금 2026", tags: ["소상공인"], cat: "사업", icon: "🏪", url: "posts/소상공인-정책자금-2026.html", desc: "소진공 정책자금, 특례보증 등 소상공인 금융 지원 총정리", age: "", income: "" },
 ];
 
-function renderResults(list) {
+const USE_API = (typeof WelfareAPI !== 'undefined') &&
+                window.WelfareAPI &&
+                !document.querySelector('script[src*="api.js"]')?.src.includes('YOUR_API_KEY'); // API 키 설정 시 true
+
+function renderResults(list, fromApi) {
   const container = document.getElementById('result-list');
   document.getElementById('result-count-num').textContent = list.length;
+
   if (!list.length) {
     container.innerHTML = '<div class="no-result"><div class="nr-icon">😔</div><p>조건에 맞는 지원금이 없습니다.<br>조건을 변경해 다시 검색해보세요.</p></div>';
     return;
   }
-  container.innerHTML = list.map(function(b) {
-    return '<a href="' + b.url + '" class="result-card"><div class="post-badge">' + b.icon + '</div><div class="post-info"><div class="result-tag">' + b.cat + '</div><div class="post-title">' + b.title + '</div><div class="post-desc">' + b.desc + '</div></div></a>';
-  }).join('');
+
+  if (fromApi) {
+    // 복지로 API 결과 렌더링
+    container.innerHTML = list.map(function(b) {
+      return '<div class="result-card">'
+        + '<div class="post-badge">🏛️</div>'
+        + '<div class="post-info">'
+        + '<div class="result-tag">' + (b.supportType || '복지서비스') + '</div>'
+        + '<div class="post-title">' + b.title + '</div>'
+        + '<div class="post-desc">' + (b.summary || b.target || '') + '</div>'
+        + (b.applyUrl ? '<div class="post-meta"><a href="' + b.applyUrl + '" target="_blank" rel="noopener" style="color:var(--primary);">공식 신청 페이지 →</a></div>' : '')
+        + '</div></div>';
+    }).join('');
+  } else {
+    // 로컬 데이터 렌더링
+    container.innerHTML = list.map(function(b) {
+      return '<a href="' + b.url + '" class="result-card">'
+        + '<div class="post-badge">' + b.icon + '</div>'
+        + '<div class="post-info">'
+        + '<div class="result-tag">' + b.cat + '</div>'
+        + '<div class="post-title">' + b.title + '</div>'
+        + '<div class="post-desc">' + b.desc + '</div>'
+        + '</div></a>';
+    }).join('');
+  }
 }
 
-function doFilter() {
+function showLoading() {
+  document.getElementById('result-list').innerHTML =
+    '<div style="text-align:center;padding:40px;color:var(--text-sub);">'
+    + '<div style="font-size:2rem;margin-bottom:12px;">⏳</div>'
+    + '<p>복지로에서 실시간 검색 중...</p></div>';
+}
+
+async function doFilter() {
   const age = document.getElementById('f-age').value;
   const household = document.getElementById('f-household').value;
   const income = document.getElementById('f-income').value;
   const kw = document.getElementById('f-keyword').value.trim();
 
-  let results = ALL_BENEFITS.filter(function(b) {
+  // 복지로 API 키가 설정된 경우 실시간 API 검색
+  if (kw && window.WelfareAPI && BOKJIRO_API_KEY !== 'YOUR_API_KEY_HERE') {
+    showLoading();
+    const result = await window.WelfareAPI.searchBokjiro(kw, { pageSize: 20 });
+    if (result.items && result.items.length > 0) {
+      renderResults(result.items, true);
+      return;
+    }
+  }
+
+  // 로컬 데이터 폴백
+  let results = LOCAL_BENEFITS.filter(function(b) {
     if (age && b.age && b.age !== age) return false;
     if (household && b.household && b.household !== household) return false;
     if (income && b.income && parseInt(b.income) > parseInt(income)) return false;
     if (kw) {
-      const kwLower = kw.toLowerCase();
       if (!b.title.includes(kw) && !b.desc.includes(kw) && !b.tags.join('').includes(kw)) return false;
     }
     return true;
   });
-  renderResults(results);
+  renderResults(results, false);
 }
 
-// URL 파라미터 파싱
+// URL 파라미터 파싱 및 초기 렌더링
 (function() {
   const params = new URLSearchParams(window.location.search);
   const cat = params.get('cat');
