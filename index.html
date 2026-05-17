@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>복지모아 — 정부 지원금·복지혜택 정보 총정리 2026</title>
+  <meta name="description" content="2026년 최신 정부 지원금, 복지혜택 정보를 한곳에서 확인하세요. 청년·한부모·노인·장애인·소상공인 맞춤 지원금 검색 도구 제공.">
+  <link rel="canonical" href="https://welfare.luckygrampus.com/">
+  <meta property="og:title" content="복지모아 — 정부 지원금·복지혜택 정보 총정리 2026">
+  <meta property="og:description" content="2026년 최신 정부 지원금, 복지혜택 정보를 한곳에서 확인하세요.">
+  <meta property="og:url" content="https://welfare.luckygrampus.com/">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Google AdSense -->
+  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <span class="logo-icon">🏛️</span>
+      <span>복지모아</span>
+    </a>
+    <nav class="site-nav">
+      <a href="/" class="active">홈</a>
+      <a href="search.html">지원금 검색</a>
+      <a href="posts/청년-월세-지원금-2026.html">청년지원</a>
+      <a href="#categories">카테고리</a>
+    </nav>
+  </div>
+</header>
+
+<!-- AdSense 상단 리더보드 (728×90) -->
+<div class="ad-leaderboard">
+  <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins> -->
+  <div class="ad-placeholder" style="width:728px;max-width:100%;height:90px;">광고 영역</div>
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <h1>내가 받을 수 있는 지원금,<br>지금 바로 확인하세요</h1>
+  <p>2026년 최신 정부 지원금 · 복지혜택 정보를 한곳에서</p>
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="지원금 이름, 조건을 검색해보세요 (예: 청년 월세)">
+    <button onclick="doSearch()">검색</button>
+  </div>
+  <div class="hero-tags">
+    <a href="posts/청년-월세-지원금-2026.html">#청년월세지원</a>
+    <a href="search.html?cat=청년">청년도약계좌</a>
+    <a href="search.html?cat=근로">근로장려금</a>
+    <a href="search.html?cat=기초생활">기초생활수급</a>
+    <a href="search.html?cat=소상공인">소상공인 정책자금</a>
+  </div>
+</section>
+
+<!-- ===== MAIN ===== -->
+<div class="main-wrap">
+
+  <!-- ===== 콘텐츠 영역 ===== -->
+  <main>
+
+    <!-- 카테고리 -->
+    <section id="categories">
+      <h2 class="section-title">카테고리별 지원금</h2>
+      <div class="category-grid">
+        <div class="cat-card" data-cat="청년" onclick="location.href='search.html?cat=청년'">
+          <div class="cat-icon">🎓</div>
+          <div class="cat-name">청년</div>
+          <div class="cat-count">월세·저축·취업</div>
+        </div>
+        <div class="cat-card" data-cat="근로·소득" onclick="location.href='search.html?cat=근로'">
+          <div class="cat-icon">💼</div>
+          <div class="cat-name">근로·소득</div>
+          <div class="cat-count">근로장려금·EITC</div>
+        </div>
+        <div class="cat-card" data-cat="한부모" onclick="location.href='search.html?cat=한부모'">
+          <div class="cat-icon">👨‍👧</div>
+          <div class="cat-name">한부모·가족</div>
+          <div class="cat-count">양육비·생계지원</div>
+        </div>
+        <div class="cat-card" data-cat="기초생활" onclick="location.href='search.html?cat=기초생활'">
+          <div class="cat-icon">🏠</div>
+          <div class="cat-name">기초생활</div>
+          <div class="cat-count">생계·주거·의료</div>
+        </div>
+        <div class="cat-card" data-cat="노인" onclick="location.href='search.html?cat=노인'">
+          <div class="cat-icon">👴</div>
+          <div class="cat-name">노인·어르신</div>
+          <div class="cat-count">기초연금·돌봄</div>
+        </div>
+        <div class="cat-card" data-cat="장애인" onclick="location.href='search.html?cat=장애인'">
+          <div class="cat-icon">♿</div>
+          <div class="cat-name">장애인</div>
+          <div class="cat-count">활동지원·급여</div>
+        </div>
+        <div class="cat-card" data-cat="에너지" onclick="location.href='search.html?cat=에너지'">
+          <div class="cat-icon">💡</div>
+          <div class="cat-name">에너지바우처</div>
+          <div class="cat-count">냉·난방비 지원</div>
+        </div>
+        <div class="cat-card" data-cat="소상공인" onclick="location.href='search.html?cat=소상공인'">
+          <div class="cat-icon">🏪</div>
+          <div class="cat-name">소상공인</div>
+          <div class="cat-count">정책자금·특례</div>
+        </div>
+        <div class="cat-card" data-cat="문화" onclick="location.href='search.html?cat=문화'">
+          <div class="cat-icon">🎭</div>
+          <div class="cat-name">문화·여가</div>
+          <div class="cat-count">문화누리카드</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 최신 글 목록 -->
+    <section>
+      <h2 class="section-title">2026 최신 지원금 정보</h2>
+      <div class="post-list">
+
+        <a href="posts/청년-월세-지원금-2026.html" class="post-card">
+          <div class="post-badge">🏠</div>
+          <div class="post-info">
+            <div class="post-category">청년지원</div>
+            <div class="post-title">2026 청년 월세 지원금 신청 방법 총정리 (최대 월 20만원)</div>
+            <div class="post-desc">만 19~34세 청년이라면 월 최대 20만원, 최장 12개월간 월세를 지원받을 수 있습니다. 자격 조건과 신청 방법을 단계별로 정리했습니다.</div>
+            <div class="post-meta">2026.05.17</div>
+          </div>
+        </a>
+
+        <!-- AdSense 인피드 -->
+        <div class="ad-infeed">
+          <!-- <ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-fb+5w+4e-db+86" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX"></ins> -->
+        </div>
+
+        <a href="posts/청년도약계좌-2026.html" class="post-card">
+          <div class="post-badge">💰</div>
+          <div class="post-info">
+            <div class="post-category">청년지원</div>
+            <div class="post-title">청년도약계좌 신청 자격 2026 — 5년 만기 최대 5000만원</div>
+            <div class="post-desc">월 70만원씩 5년 납입하면 정부 기여금 포함 최대 5000만원. 소득 기준·납입 방법·이자율까지 핵심만 정리했습니다.</div>
+            <div class="post-meta">2026.05.17</div>
+          </div>
+        </a>
+
+        <a href="posts/근로장려금-신청-2026.html" class="post-card">
+          <div class="post-badge">💼</div>
+          <div class="post-info">
+            <div class="post-category">근로·소득</div>
+            <div class="post-title">2026 근로장려금 신청 방법 — 단독가구 최대 165만원</div>
+            <div class="post-desc">근로장려금은 소득이 낮은 근로자·사업자·종교인 가구에게 지원하는 환급형 세액공제입니다. 신청 기간과 수령 금액을 확인하세요.</div>
+            <div class="post-meta">2026.05.17</div>
+          </div>
+        </a>
+
+        <!-- AdSense 인피드 -->
+        <div class="ad-infeed">
+          <!-- <ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-fb+5w+4e-db+86" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX"></ins> -->
+        </div>
+
+        <a href="posts/청년내일저축계좌-2026.html" class="post-card">
+          <div class="post-badge">🏦</div>
+          <div class="post-info">
+            <div class="post-category">청년지원</div>
+            <div class="post-title">청년내일저축계좌 조건 2026 — 정부 3배 적립</div>
+            <div class="post-desc">월 10만원 저축 시 정부가 최대 30만원 추가 적립. 기준 중위소득 100% 이하 청년이라면 신청할 수 있습니다.</div>
+            <div class="post-meta">2026.05.17</div>
+          </div>
+        </a>
+
+        <a href="posts/에너지바우처-2026.html" class="post-card">
+          <div class="post-badge">💡</div>
+          <div class="post-info">
+            <div class="post-category">에너지바우처</div>
+            <div class="post-title">에너지바우처 신청 방법 2026 — 냉·난방비 최대 59만원 지원</div>
+            <div class="post-desc">에너지 취약계층을 위한 냉·난방 비용 지원 제도입니다. 1인 가구부터 4인 이상까지 지원 금액 및 신청 방법을 확인하세요.</div>
+            <div class="post-meta">2026.05.17</div>
+          </div>
+        </a>
+
+        <a href="posts/기초생활수급자-신청-2026.html" class="post-card">
+          <div class="post-badge">🏛️</div>
+          <div class="post-info">
+            <div class="post-category">기초생활</div>
+            <div class="post-title">기초생활수급자 신청 방법 2026 — 생계·주거·의료·교육급여</div>
+            <div class="post-desc">기초생활보장 급여는 생계·주거·의료·교육급여로 나뉩니다. 소득인정액 기준과 신청 절차를 단계별로 안내합니다.</div>
+            <div class="post-meta">2026.05.17</div>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== 사이드바 ===== -->
+  <aside class="sidebar">
+
+    <!-- 맞춤 검색 배너 -->
+    <div class="sidebar-card" style="background:linear-gradient(135deg,#1a6fc4,#2d8cf0);color:#fff;border:none;">
+      <div style="font-size:1.4rem;margin-bottom:8px;">🔍</div>
+      <div style="font-size:1rem;font-weight:800;margin-bottom:6px;">나에게 맞는 지원금 찾기</div>
+      <div style="font-size:0.83rem;opacity:0.88;margin-bottom:14px;">나이·지역·가구유형·소득을 입력하면 맞춤 지원금을 추려드립니다.</div>
+      <a href="search.html" style="display:block;text-align:center;background:#fff;color:#1a6fc4;font-weight:800;padding:10px;border-radius:8px;font-size:0.9rem;">맞춤 검색 시작 →</a>
+    </div>
+
+    <!-- AdSense 사이드 -->
+    <div class="ad-placeholder" style="width:100%;height:250px;">광고 영역 (300×250)</div>
+
+    <!-- 인기 글 -->
+    <div class="sidebar-card">
+      <div class="sidebar-title">🔥 인기 지원금 정보</div>
+      <ul class="popular-list">
+        <li>
+          <span class="pop-num top3">1</span>
+          <a href="posts/근로장려금-신청-2026.html">2026 근로장려금 신청 방법 — 최대 165만원</a>
+        </li>
+        <li>
+          <span class="pop-num top3">2</span>
+          <a href="posts/청년-월세-지원금-2026.html">청년 월세 지원금 — 월 최대 20만원</a>
+        </li>
+        <li>
+          <span class="pop-num top3">3</span>
+          <a href="posts/청년도약계좌-2026.html">청년도약계좌 — 5년 최대 5000만원</a>
+        </li>
+        <li>
+          <span class="pop-num">4</span>
+          <a href="posts/기초생활수급자-신청-2026.html">기초생활수급자 신청 방법</a>
+        </li>
+        <li>
+          <span class="pop-num">5</span>
+          <a href="posts/에너지바우처-2026.html">에너지바우처 — 최대 59만원</a>
+        </li>
+        <li>
+          <span class="pop-num">6</span>
+          <a href="posts/국민취업지원제도-2026.html">국민취업지원제도 신청 자격</a>
+        </li>
+        <li>
+          <span class="pop-num">7</span>
+          <a href="posts/한부모가족-지원금-2026.html">한부모가족 지원금 종류 총정리</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 빠른 링크 -->
+    <div class="sidebar-card">
+      <div class="sidebar-title">🔗 공식 신청 사이트</div>
+      <div class="quick-links">
+        <a href="https://www.bokjiro.go.kr" target="_blank" rel="noopener" class="quick-link">
+          <span class="quick-link-icon">🏛️</span> 복지로
+        </a>
+        <a href="https://www.gov.kr" target="_blank" rel="noopener" class="quick-link">
+          <span class="quick-link-icon">🇰🇷</span> 정부24
+        </a>
+        <a href="https://www.work24.go.kr" target="_blank" rel="noopener" class="quick-link">
+          <span class="quick-link-icon">💼</span> 고용24
+        </a>
+        <a href="https://www.hometax.go.kr" target="_blank" rel="noopener" class="quick-link">
+          <span class="quick-link-icon">💰</span> 홈택스 (근로장려금)
+        </a>
+      </div>
+    </div>
+
+    <!-- 안내 -->
+    <div class="notice-box">
+      <strong>📌 안내</strong><br>
+      본 사이트의 지원금 정보는 참고용입니다. 정확한 금액·자격·기간은 복지로 또는 각 부처 공식 사이트에서 반드시 확인하시기 바랍니다.
+    </div>
+
+  </aside>
+
+</div><!-- /main-wrap -->
+
+<!-- ===== 맞춤검색 배너 ===== -->
+<div class="banner-strip">
+  <h2>내 조건에 맞는 지원금, 한번에 찾아보세요</h2>
+  <p>나이 · 지역 · 가구유형 · 소득구간을 선택하면 받을 수 있는 지원금 목록을 바로 확인할 수 있습니다.</p>
+  <a href="search.html" class="btn-primary">맞춤 지원금 검색 →</a>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">🏛️ 복지모아</div>
+      <p>정부 지원금·복지혜택 정보를<br>쉽고 빠르게 찾아드립니다.</p>
+    </div>
+    <div>
+      <div style="font-weight:700;color:#dde3ed;margin-bottom:10px;">카테고리</div>
+      <div class="footer-links">
+        <a href="search.html?cat=청년">청년 지원금</a>
+        <a href="search.html?cat=근로">근로·소득 지원</a>
+        <a href="search.html?cat=기초생활">기초생활수급</a>
+        <a href="search.html?cat=소상공인">소상공인 지원</a>
+      </div>
+    </div>
+    <div>
+      <div style="font-weight:700;color:#dde3ed;margin-bottom:10px;">바로가기</div>
+      <div class="footer-links">
+        <a href="search.html">맞춤 지원금 검색</a>
+        <a href="https://www.bokjiro.go.kr" target="_blank" rel="noopener">복지로</a>
+        <a href="https://www.gov.kr" target="_blank" rel="noopener">정부24</a>
+        <a href="https://www.work24.go.kr" target="_blank" rel="noopener">고용24</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 복지모아 · 본 사이트는 정보 제공 목적이며, 공식 지원금 신청은 각 부처 공식 사이트에서 하시기 바랍니다.</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
