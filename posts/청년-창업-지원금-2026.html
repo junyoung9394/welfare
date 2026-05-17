@@ -2,9 +2,16 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#1a6fc4">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>청년 창업 지원금 2026 — 정부 지원 총정리 (최대 1억원) | 복지모아</title>
   <meta name="description" content="2026년 청년 창업 지원금 정부 지원 총정리. 청년창업사관학교, 창업성공패키지 등 최대 1억원 지원. 신청 자격·종류별 지원 내용을 한눈에 확인하세요.">
+  <meta property="og:title" content="청년 창업 지원금 2026 — 정부 지원 총정리 (최대 1억원)">
+  <meta property="og:description" content="2026년 청년 창업 지원금 정부 지원 총정리. 청년창업사관학교, 창업성공패키지 등 최대 1억원 지원. 신청 자격·종류별 지원 내용을 한눈에 확인하세요.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://welfare.luckygrampus.com/posts/청년-창업-지원금-2026.html">
+  <meta property="og:image" content="https://welfare.luckygrampus.com/og-default.svg">
   <link rel="canonical" href="https://welfare.luckygrampus.com/posts/청년-창업-지원금-2026.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
@@ -30,7 +37,7 @@
     .step-content strong { display: block; font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; }
     .step-content span { font-size: 0.88rem; color: var(--text-sub); line-height: 1.6; }
     .faq-item { border: 1px solid var(--border); border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
-    .faq-q { padding: 14px 18px; font-weight: 700; font-size: 0.93rem; cursor: pointer; background: var(--bg); display: flex; justify-content: space-between; align-items: center; }
+    .faq-q { padding: 14px 18px; font-weight: 700; font-size: 0.93rem; cursor: pointer; background: var(--bg); display: flex; justify-content: space-between; align-items: center; border: none; width: 100%; text-align: left; font-family: var(--font); color: var(--text); }
     .faq-a { padding: 12px 18px; font-size: 0.9rem; line-height: 1.7; color: var(--text-sub); display: none; border-top: 1px solid var(--border); }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-q { background: var(--primary-light); color: var(--primary); }
@@ -44,6 +51,21 @@
     @media (max-width: 600px) { .related-grid { grid-template-columns: 1fr; } }
   </style>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8518556382646891" crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "청년 창업 지원금 2026 — 정부 지원 총정리 (최대 1억원)",
+    "description": "2026년 청년 창업 지원금 정부 지원 총정리. 청년창업사관학교, 창업성공패키지 등 최대 1억원 지원. 신청 자격·종류별 지원 내용을 한눈에 확인하세요.",
+    "url": "https://welfare.luckygrampus.com/posts/청년-창업-지원금-2026.html",
+    "datePublished": "2026-05-17",
+    "dateModified": "2026-05-17",
+    "inLanguage": "ko-KR",
+    "author": {"@type": "Organization", "name": "복지모아", "url": "https://welfare.luckygrampus.com"},
+    "publisher": {"@type": "Organization", "name": "복지모아", "url": "https://welfare.luckygrampus.com"},
+    "image": "https://welfare.luckygrampus.com/og-default.svg"
+  }
+  </script>
 </head>
 <body>
 <header class="site-header">
@@ -52,7 +74,7 @@
     <nav class="site-nav">
       <a href="/">홈</a>
       <a href="../search.html">지원금 검색</a>
-      <a href="#" class="active">청년 지원금</a>
+      <a href="../search.html">청년 지원금</a>
       <a href="/#categories">카테고리</a>
     </nav>
   </div>
@@ -132,27 +154,27 @@
 
     <h2>자주 묻는 질문 (FAQ)</h2>
     <div class="faq-item">
-      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
         <span>사업자 등록이 없어도 청년 창업 지원금을 신청할 수 있나요?</span><span>▼</span>
-      </div>
+      </button>
       <div class="faq-a">네, 예비창업패키지나 청년창업사관학교는 예비창업자(사업자 미등록)도 신청 가능합니다. 선발 후 협약 체결 전까지 사업자를 등록하면 됩니다.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
         <span>지원금을 받으면 나중에 갚아야 하나요?</span><span>▼</span>
-      </div>
+      </button>
       <div class="faq-a">정부 창업 지원금(예비창업패키지, 청년창업사관학교 등)은 대출이 아닌 보조금(무상 지원)입니다. 단, 지원 목적에 맞게 사용해야 하며, 사업 목적 외 사용이나 허위 청구 시 환수 조치가 이뤄질 수 있습니다.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
         <span>한 번 지원금을 받은 사람도 다시 신청할 수 있나요?</span><span>▼</span>
-      </div>
+      </button>
       <div class="faq-a">일부 사업은 동일 사업에 중복 선정이 제한됩니다. 그러나 다른 지원 사업에는 신청이 가능하며, 이전 지원 사업의 성과 보고를 완료한 경우 재신청을 허용하는 경우도 있습니다. 개별 공고 요건을 반드시 확인하세요.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
         <span>창업 업종에 제한이 있나요?</span><span>▼</span>
-      </div>
+      </button>
       <div class="faq-a">일반 제조업·IT·서비스업 등 대부분의 업종이 가능하지만, 유흥업·도박업·부동산 임대업 등 일부 업종은 지원에서 제외됩니다. 또한 개인 창업이 아닌 프랜차이즈 가맹점 형태는 대부분 제외됩니다. 공고문을 꼼꼼히 확인하세요.</div>
     </div>
 
@@ -177,7 +199,7 @@
     </div>
   </div>
   <div style="margin-top:36px;padding-top:24px;border-top:1px solid var(--border);font-size:0.82rem;color:#aaa;">
-    ※ 본 정보는 참고용입니다. 정확한 지원 금액·자격·신청 기간은 <a href="https://www.bokjiro.go.kr" target="_blank" rel="noopener" style="color:var(--primary);">복지로 공식 사이트</a> 또는 주민센터에서 반드시 확인하시기 바랍니다.
+    ※ 본 정보는 참고용입니다. 정확한 지원 금액·자격·신청 기간은 <a href="https://www.bokjiro.go.kr" target="_blank" rel="noopener noreferrer" style="color:var(--primary);">복지로 공식 사이트</a> 또는 주민센터에서 반드시 확인하시기 바랍니다.
   </div>
 </div>
 
@@ -190,7 +212,7 @@
   <div class="footer-inner">
     <div><div class="footer-logo">&#127963; 복지모아</div><p>정부 지원금·복지혜택 정보를<br>쉽고 빠르게 찾아드립니다.</p></div>
     <div><div style="font-weight:700;color:#dde3ed;margin-bottom:10px;">카테고리</div><div class="footer-links"><a href="../search.html?cat=청년">청년 지원금</a><a href="../search.html?cat=근로">근로·소득 지원</a><a href="../search.html?cat=기초생활">기초생활수급</a><a href="../search.html?cat=소상공인">소상공인 지원</a></div></div>
-    <div><div style="font-weight:700;color:#dde3ed;margin-bottom:10px;">바로가기</div><div class="footer-links"><a href="../index.html">복지모아 홈</a><a href="https://www.bokjiro.go.kr" target="_blank" rel="noopener">복지로</a><a href="https://www.gov.kr" target="_blank" rel="noopener">정부24</a></div></div>
+    <div><div style="font-weight:700;color:#dde3ed;margin-bottom:10px;">바로가기</div><div class="footer-links"><a href="../index.html">복지모아 홈</a><a href="https://www.bokjiro.go.kr" target="_blank" rel="noopener noreferrer">복지로</a><a href="https://www.gov.kr" target="_blank" rel="noopener noreferrer">정부24</a></div></div>
   </div>
   <div class="footer-bottom"><p>© 2026 복지모아 · 본 사이트는 정보 제공 목적이며, 공식 지원금 신청은 각 부처 공식 사이트에서 하시기 바랍니다.</p></div>
 </footer>

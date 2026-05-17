@@ -2,9 +2,16 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#1a6fc4">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>실업급여 신청 방법 2026 — 조건·금액·기간 완벽 정리 | 복지모아</title>
   <meta name="description" content="2026년 실업급여 신청 방법 완벽 정리. 수급 조건, 지급 금액(이직 전 평균임금 60%), 지급 기간(90~270일)을 한눈에 확인하고 단계별로 신청하세요.">
+  <meta property="og:title" content="실업급여 신청 방법 2026 — 조건·금액·기간 완벽 정리">
+  <meta property="og:description" content="2026년 실업급여 신청 방법 완벽 정리. 수급 조건, 지급 금액(이직 전 평균임금 60%), 지급 기간(90~270일)을 한눈에 확인하고 단계별로 신청하세요.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://welfare.luckygrampus.com/posts/실업급여-신청-방법-2026.html">
+  <meta property="og:image" content="https://welfare.luckygrampus.com/og-default.svg">
   <link rel="canonical" href="https://welfare.luckygrampus.com/posts/실업급여-신청-방법-2026.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
@@ -30,7 +37,7 @@
     .step-content strong { display: block; font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; }
     .step-content span { font-size: 0.88rem; color: var(--text-sub); line-height: 1.6; }
     .faq-item { border: 1px solid var(--border); border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
-    .faq-q { padding: 14px 18px; font-weight: 700; font-size: 0.93rem; cursor: pointer; background: var(--bg); display: flex; justify-content: space-between; align-items: center; }
+    .faq-q { padding: 14px 18px; font-weight: 700; font-size: 0.93rem; cursor: pointer; background: var(--bg); display: flex; justify-content: space-between; align-items: center; border: none; width: 100%; text-align: left; font-family: var(--font); color: var(--text); }
     .faq-a { padding: 12px 18px; font-size: 0.9rem; line-height: 1.7; color: var(--text-sub); display: none; border-top: 1px solid var(--border); }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-q { background: var(--primary-light); color: var(--primary); }
@@ -44,6 +51,21 @@
     @media (max-width: 600px) { .related-grid { grid-template-columns: 1fr; } }
   </style>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8518556382646891" crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "실업급여 신청 방법 2026 — 조건·금액·기간 완벽 정리",
+    "description": "2026년 실업급여 신청 방법 완벽 정리. 수급 조건, 지급 금액(이직 전 평균임금 60%), 지급 기간(90~270일)을 한눈에 확인하고 단계별로 신청하세요.",
+    "url": "https://welfare.luckygrampus.com/posts/실업급여-신청-방법-2026.html",
+    "datePublished": "2026-05-17",
+    "dateModified": "2026-05-17",
+    "inLanguage": "ko-KR",
+    "author": {"@type": "Organization", "name": "복지모아", "url": "https://welfare.luckygrampus.com"},
+    "publisher": {"@type": "Organization", "name": "복지모아", "url": "https://welfare.luckygrampus.com"},
+    "image": "https://welfare.luckygrampus.com/og-default.svg"
+  }
+  </script>
 </head>
 <body>
 <header class="site-header">
@@ -52,7 +74,7 @@
     <nav class="site-nav">
       <a href="/">홈</a>
       <a href="../search.html">지원금 검색</a>
-      <a href="#" class="active">근로·소득</a>
+      <a href="../search.html">근로·소득</a>
       <a href="/#categories">카테고리</a>
     </nav>
   </div>
@@ -136,27 +158,27 @@
 
     <h2>자주 묻는 질문 (FAQ)</h2>
     <div class="faq-item">
-      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
         <span>계약직 계약 만료 시 실업급여를 받을 수 있나요?</span><span>▼</span>
-      </div>
+      </button>
       <div class="faq-a">네, 계약 만료로 인한 이직은 비자발적 이직으로 인정됩니다. 피보험 기간 180일 이상 조건을 충족하면 실업급여 수급이 가능합니다.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
         <span>아르바이트(단시간 근로자)도 실업급여를 받을 수 있나요?</span><span>▼</span>
-      </div>
+      </button>
       <div class="faq-a">주 15시간 이상 근무하는 단시간 근로자도 고용보험에 가입되어 있다면 실업급여 수급 가능합니다. 다만 주 15시간 미만 근로자는 고용보험 가입 의무가 없어 수급이 어려울 수 있습니다.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
         <span>실업급여 수급 중 아르바이트를 하면 어떻게 되나요?</span><span>▼</span>
-      </div>
+      </button>
       <div class="faq-a">수급 중 취업 또는 아르바이트를 한 경우 해당 사실을 고용센터에 신고해야 합니다. 신고하지 않고 소득이 발생하면 부정수급으로 처벌받을 수 있습니다. 일정 기준 이하의 단기 아르바이트는 감액 지급되는 경우도 있으니 반드시 신고 후 확인하세요.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
         <span>조기재취업수당이란 무엇인가요?</span><span>▼</span>
-      </div>
+      </button>
       <div class="faq-a">실업급여 수급 기간의 1/2 이상이 남은 상태에서 재취업에 성공하면, 남은 실업급여 잔여액의 일부를 '조기재취업수당'으로 받을 수 있습니다. 조기 취업을 장려하기 위한 제도입니다.</div>
     </div>
 
@@ -181,7 +203,7 @@
     </div>
   </div>
   <div style="margin-top:36px;padding-top:24px;border-top:1px solid var(--border);font-size:0.82rem;color:#aaa;">
-    ※ 본 정보는 참고용입니다. 정확한 지원 금액·자격·신청 기간은 <a href="https://www.bokjiro.go.kr" target="_blank" rel="noopener" style="color:var(--primary);">복지로 공식 사이트</a> 또는 주민센터에서 반드시 확인하시기 바랍니다.
+    ※ 본 정보는 참고용입니다. 정확한 지원 금액·자격·신청 기간은 <a href="https://www.bokjiro.go.kr" target="_blank" rel="noopener noreferrer" style="color:var(--primary);">복지로 공식 사이트</a> 또는 주민센터에서 반드시 확인하시기 바랍니다.
   </div>
 </div>
 
@@ -194,7 +216,7 @@
   <div class="footer-inner">
     <div><div class="footer-logo">🏛️ 복지모아</div><p>정부 지원금·복지혜택 정보를<br>쉽고 빠르게 찾아드립니다.</p></div>
     <div><div style="font-weight:700;color:#dde3ed;margin-bottom:10px;">카테고리</div><div class="footer-links"><a href="../search.html?cat=청년">청년 지원금</a><a href="../search.html?cat=근로">근로·소득 지원</a><a href="../search.html?cat=기초생활">기초생활수급</a><a href="../search.html?cat=소상공인">소상공인 지원</a></div></div>
-    <div><div style="font-weight:700;color:#dde3ed;margin-bottom:10px;">바로가기</div><div class="footer-links"><a href="../index.html">복지모아 홈</a><a href="https://www.bokjiro.go.kr" target="_blank" rel="noopener">복지로</a><a href="https://www.gov.kr" target="_blank" rel="noopener">정부24</a></div></div>
+    <div><div style="font-weight:700;color:#dde3ed;margin-bottom:10px;">바로가기</div><div class="footer-links"><a href="../index.html">복지모아 홈</a><a href="https://www.bokjiro.go.kr" target="_blank" rel="noopener noreferrer">복지로</a><a href="https://www.gov.kr" target="_blank" rel="noopener noreferrer">정부24</a></div></div>
   </div>
   <div class="footer-bottom"><p>© 2026 복지모아 · 본 사이트는 정보 제공 목적이며, 공식 지원금 신청은 각 부처 공식 사이트에서 하시기 바랍니다.</p></div>
 </footer>

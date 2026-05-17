@@ -2,13 +2,17 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#1a6fc4">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>에너지바우처 신청 방법 2026 — 냉·난방비 최대 59만원 지원 | 복지모아</title>
   <meta name="description" content="2026년 에너지바우처 신청 자격(기초수급자 노인·장애인·임산부 등), 지원 금액(동절기+하절기 합산 최대 59만원), 신청 방법을 정리했습니다.">
   <link rel="canonical" href="https://welfare.luckygrampus.com/posts/에너지바우처-2026.html">
   <meta property="og:title" content="에너지바우처 신청 방법 2026 — 냉·난방비 최대 59만원 지원">
   <meta property="og:description" content="에너지바우처 자격·지원금액·신청 방법 완벽 정리">
+  <meta property="og:type" content="article">
   <meta property="og:url" content="https://welfare.luckygrampus.com/posts/에너지바우처-2026.html">
+  <meta property="og:image" content="https://welfare.luckygrampus.com/og-default.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
@@ -35,7 +39,7 @@
     .step-content strong { display: block; font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; }
     .step-content span { font-size: 0.88rem; color: var(--text-sub); line-height: 1.6; }
     .faq-item { border: 1px solid var(--border); border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
-    .faq-q { padding: 14px 18px; font-weight: 700; font-size: 0.93rem; cursor: pointer; background: var(--bg); display: flex; justify-content: space-between; align-items: center; }
+    .faq-q { padding: 14px 18px; font-weight: 700; font-size: 0.93rem; cursor: pointer; background: var(--bg); display: flex; justify-content: space-between; align-items: center; border: none; width: 100%; text-align: left; font-family: var(--font); color: var(--text); }
     .faq-a { padding: 12px 18px; font-size: 0.9rem; line-height: 1.7; color: var(--text-sub); display: none; border-top: 1px solid var(--border); }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-q { background: var(--primary-light); color: var(--primary); }
@@ -49,6 +53,21 @@
     @media (max-width: 600px) { .related-grid { grid-template-columns: 1fr; } }
   </style>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8518556382646891" crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "에너지바우처 신청 방법 2026 — 냉·난방비 최대 59만원 지원",
+    "description": "2026년 에너지바우처 신청 자격(기초수급자 노인·장애인·임산부 등), 지원 금액(동절기+하절기 합산 최대 59만원), 신청 방법을 정리했습니다.",
+    "url": "https://welfare.luckygrampus.com/posts/에너지바우처-2026.html",
+    "datePublished": "2026-05-17",
+    "dateModified": "2026-05-17",
+    "inLanguage": "ko-KR",
+    "author": {"@type": "Organization", "name": "복지모아", "url": "https://welfare.luckygrampus.com"},
+    "publisher": {"@type": "Organization", "name": "복지모아", "url": "https://welfare.luckygrampus.com"},
+    "image": "https://welfare.luckygrampus.com/og-default.svg"
+  }
+  </script>
 </head>
 <body>
 
@@ -58,7 +77,7 @@
     <nav class="site-nav">
       <a href="/">홈</a>
       <a href="../search.html">지원금 검색</a>
-      <a href="#" class="active">기초생활지원</a>
+      <a href="../search.html">기초생활지원</a>
       <a href="/#categories">카테고리</a>
     </nav>
   </div>
@@ -161,27 +180,27 @@
 
     <h2>자주 묻는 질문 (FAQ)</h2>
     <div class="faq-item">
-      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
         Q. 전기와 가스 둘 다 쓰는 집인데 두 곳에 모두 쓸 수 있나요? <span>▼</span>
-      </div>
+      </button>
       <div class="faq-a">A. 네, 에너지바우처는 전기·도시가스·지역난방·등유·LPG·연탄 등 여러 에너지에 나눠서 사용할 수 있습니다. 국민행복카드로 각 에너지 공급사에 결제하면 됩니다. 단, 당해 연도 사용기간 내에 소진해야 합니다.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
         Q. 주거급여를 이미 받고 있는데 중복 수령이 되나요? <span>▼</span>
-      </div>
+      </button>
       <div class="faq-a">A. 에너지바우처는 주거급여와 별개의 사업이므로 중복 수혜가 가능합니다. 다만, 동일한 에너지 지원 사업(예: 연료비 지원 등)과는 중복 제한이 있을 수 있으니 담당자에게 확인하세요.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
         Q. 국민행복카드가 없으면 바우처를 받을 수 없나요? <span>▼</span>
-      </div>
+      </button>
       <div class="faq-a">A. 국민행복카드가 없는 경우 신청 시 카드 발급 안내를 받을 수 있습니다. 카드 발급이 어려운 분은 지로 형태로 지급받거나, 주민센터에서 대리 납부를 요청할 수 있습니다.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
         Q. 의료급여 수급자도 신청 가능한가요? <span>▼</span>
-      </div>
+      </button>
       <div class="faq-a">A. 네, 의료급여 수급자도 가구원 요건(노인·장애인·영유아·임산부 등)을 충족하면 에너지바우처를 신청할 수 있습니다. 주거급여나 교육급여 수급자는 해당되지 않습니다.</div>
     </div>
 
@@ -208,7 +227,7 @@
   </div><!-- /post-body -->
 
   <div style="margin-top:36px;padding-top:24px;border-top:1px solid var(--border);font-size:0.82rem;color:#aaa;">
-    ※ 본 정보는 참고용입니다. 정확한 지원 금액·자격·신청 기간은 <a href="https://www.bokjiro.go.kr" target="_blank" rel="noopener" style="color:var(--primary);">복지로 공식 사이트</a> 또는 주민센터에서 반드시 확인하시기 바랍니다.
+    ※ 본 정보는 참고용입니다. 정확한 지원 금액·자격·신청 기간은 <a href="https://www.bokjiro.go.kr" target="_blank" rel="noopener noreferrer" style="color:var(--primary);">복지로 공식 사이트</a> 또는 주민센터에서 반드시 확인하시기 바랍니다.
   </div>
 
 </div><!-- /post-wrap -->
@@ -238,8 +257,8 @@
       <div style="font-weight:700;color:#dde3ed;margin-bottom:10px;">바로가기</div>
       <div class="footer-links">
         <a href="../index.html">복지모아 홈</a>
-        <a href="https://www.bokjiro.go.kr" target="_blank" rel="noopener">복지로</a>
-        <a href="https://www.gov.kr" target="_blank" rel="noopener">정부24</a>
+        <a href="https://www.bokjiro.go.kr" target="_blank" rel="noopener noreferrer">복지로</a>
+        <a href="https://www.gov.kr" target="_blank" rel="noopener noreferrer">정부24</a>
       </div>
     </div>
   </div>

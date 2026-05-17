@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#1a6fc4"/>
+  <rect x="40" y="40" width="1120" height="550" rx="24" fill="#145299"/>
+  <text x="600" y="220" font-family="serif" font-size="100" text-anchor="middle" fill="white">🏛️</text>
+  <text x="600" y="330" font-family="sans-serif" font-size="64" font-weight="bold" text-anchor="middle" fill="white">복지모아</text>
+  <text x="600" y="410" font-family="sans-serif" font-size="32" text-anchor="middle" fill="rgba(255,255,255,0.85)">2026 정부 지원금 · 복지혜택 정보 총정리</text>
+  <text x="600" y="520" font-family="sans-serif" font-size="26" text-anchor="middle" fill="rgba(255,255,255,0.65)">welfare.luckygrampus.com</text>
+</svg>

@@ -2,10 +2,17 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#1a6fc4">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>맞춤 지원금 검색 | 복지모아</title>
   <meta name="description" content="나이, 지역, 가구유형, 소득구간을 선택하면 받을 수 있는 정부 지원금을 바로 확인할 수 있습니다.">
   <link rel="canonical" href="https://welfare.luckygrampus.com/search.html">
+  <meta property="og:title" content="맞춤 지원금 검색 | 복지모아">
+  <meta property="og:description" content="나이, 지역, 가구유형, 소득구간을 선택하면 받을 수 있는 정부 지원금을 바로 확인할 수 있습니다.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://welfare.luckygrampus.com/search.html">
+  <meta property="og:image" content="https://welfare.luckygrampus.com/og-default.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
@@ -132,7 +139,7 @@
 
   <!-- 결과 영역 -->
   <div id="result-area">
-    <div class="result-count">총 <strong id="result-count-num">10</strong>개의 지원금이 검색되었습니다.</div>
+    <div class="result-count" id="result-count-wrap" style="display:none">총 <strong id="result-count-num">0</strong>개의 지원금이 검색되었습니다.</div>
     <div class="result-list" id="result-list"></div>
   </div>
 
@@ -163,8 +170,8 @@
       <div style="font-weight:700;color:#dde3ed;margin-bottom:10px;">바로가기</div>
       <div class="footer-links">
         <a href="index.html">복지모아 홈</a>
-        <a href="https://www.bokjiro.go.kr" target="_blank" rel="noopener">복지로</a>
-        <a href="https://www.gov.kr" target="_blank" rel="noopener">정부24</a>
+        <a href="https://www.bokjiro.go.kr" target="_blank" rel="noopener noreferrer">복지로</a>
+        <a href="https://www.gov.kr" target="_blank" rel="noopener noreferrer">정부24</a>
       </div>
     </div>
   </div>
@@ -200,13 +207,11 @@ const LOCAL_BENEFITS = [
   { title: "청년 창업 지원금 2026 — 최대 1억원", tags: ["청년", "창업"], cat: "청년 지원금", icon: "🚀", url: "posts/청년-창업-지원금-2026.html", desc: "청년창업사관학교, 창업성공패키지 등 최대 1억원 지원", age: "youth", income: "", region: "" },
 ];
 
-const USE_API = (typeof WelfareAPI !== 'undefined') &&
-                window.WelfareAPI &&
-                !document.querySelector('script[src*="api.js"]')?.src.includes('YOUR_API_KEY'); // API 키 설정 시 true
-
 function renderResults(list, fromApi) {
   const container = document.getElementById('result-list');
+  const countWrap = document.getElementById('result-count-wrap');
   document.getElementById('result-count-num').textContent = list.length;
+  countWrap.style.display = '';
 
   if (!list.length) {
     container.innerHTML = '<div class="no-result"><div class="nr-icon">😔</div><p>조건에 맞는 지원금이 없습니다.<br>조건을 변경해 다시 검색해보세요.</p></div>';
@@ -222,7 +227,7 @@ function renderResults(list, fromApi) {
         + '<div class="result-tag">' + (b.supportType || '복지서비스') + '</div>'
         + '<div class="post-title">' + b.title + '</div>'
         + '<div class="post-desc">' + (b.summary || b.target || '') + '</div>'
-        + (b.applyUrl ? '<div class="post-meta"><a href="' + b.applyUrl + '" target="_blank" rel="noopener" style="color:var(--primary);">공식 신청 페이지 →</a></div>' : '')
+        + (b.applyUrl ? '<div class="post-meta"><a href="' + b.applyUrl + '" target="_blank" rel="noopener noreferrer" style="color:var(--primary);">공식 신청 페이지 →</a></div>' : '')
         + '</div></div>';
     }).join('');
   } else {
@@ -285,8 +290,18 @@ async function doFilter() {
   const params = new URLSearchParams(window.location.search);
   const cat = params.get('cat');
   const q = params.get('q');
-  if (cat) document.getElementById('f-keyword').value = cat;
-  if (q) document.getElementById('f-keyword').value = q;
+
+  // cat 파라미터가 있으면 키워드 필드에 반영
+  const keyword = q || cat || '';
+  if (keyword) document.getElementById('f-keyword').value = keyword;
+
+  // age 파라미터 처리
+  const age = params.get('age');
+  const ageEl = document.getElementById('f-age');
+  if (age && Array.from(ageEl.options).some(o => o.value === age)) {
+    ageEl.value = age;
+  }
+
   doFilter();
 })();
 </script>

@@ -2,13 +2,17 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#1a6fc4">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>청년내일저축계좌 조건 2026 — 정부가 3배 적립해주는 저축 | 복지모아</title>
   <meta name="description" content="2026년 청년내일저축계좌 가입 조건, 정부 적립금(월 최대 30만원), 신청 방법을 정리했습니다. 만 19~34세 저소득 근로·사업소득자라면 3년에 1,440만원을 모을 수 있습니다.">
   <link rel="canonical" href="https://welfare.luckygrampus.com/posts/청년내일저축계좌-2026.html">
   <meta property="og:title" content="청년내일저축계좌 조건 2026 — 정부가 3배 적립해주는 저축">
   <meta property="og:description" content="청년내일저축계좌 자격·적립금·신청 방법 완벽 정리">
+  <meta property="og:type" content="article">
   <meta property="og:url" content="https://welfare.luckygrampus.com/posts/청년내일저축계좌-2026.html">
+  <meta property="og:image" content="https://welfare.luckygrampus.com/og-default.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
@@ -35,7 +39,7 @@
     .step-content strong { display: block; font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; }
     .step-content span { font-size: 0.88rem; color: var(--text-sub); line-height: 1.6; }
     .faq-item { border: 1px solid var(--border); border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
-    .faq-q { padding: 14px 18px; font-weight: 700; font-size: 0.93rem; cursor: pointer; background: var(--bg); display: flex; justify-content: space-between; align-items: center; }
+    .faq-q { padding: 14px 18px; font-weight: 700; font-size: 0.93rem; cursor: pointer; background: var(--bg); display: flex; justify-content: space-between; align-items: center; border: none; width: 100%; text-align: left; font-family: var(--font); color: var(--text); }
     .faq-a { padding: 12px 18px; font-size: 0.9rem; line-height: 1.7; color: var(--text-sub); display: none; border-top: 1px solid var(--border); }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-q { background: var(--primary-light); color: var(--primary); }
@@ -49,6 +53,21 @@
     @media (max-width: 600px) { .related-grid { grid-template-columns: 1fr; } }
   </style>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8518556382646891" crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "청년내일저축계좌 조건 2026 — 정부가 3배 적립해주는 저축",
+    "description": "2026년 청년내일저축계좌 가입 조건, 정부 적립금(월 최대 30만원), 신청 방법을 정리했습니다. 만 19~34세 저소득 근로·사업소득자라면 3년에 1,440만원을 모을 수 있습니다.",
+    "url": "https://welfare.luckygrampus.com/posts/청년내일저축계좌-2026.html",
+    "datePublished": "2026-05-17",
+    "dateModified": "2026-05-17",
+    "inLanguage": "ko-KR",
+    "author": {"@type": "Organization", "name": "복지모아", "url": "https://welfare.luckygrampus.com"},
+    "publisher": {"@type": "Organization", "name": "복지모아", "url": "https://welfare.luckygrampus.com"},
+    "image": "https://welfare.luckygrampus.com/og-default.svg"
+  }
+  </script>
 </head>
 <body>
 
@@ -58,7 +77,7 @@
     <nav class="site-nav">
       <a href="/">홈</a>
       <a href="../search.html">지원금 검색</a>
-      <a href="#" class="active">청년지원</a>
+      <a href="../search.html">청년지원</a>
       <a href="/#categories">카테고리</a>
     </nav>
   </div>
@@ -166,27 +185,27 @@
 
     <h2>자주 묻는 질문 (FAQ)</h2>
     <div class="faq-item">
-      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
         Q. 아르바이트·프리랜서도 신청할 수 있나요? <span>▼</span>
-      </div>
+      </button>
       <div class="faq-a">A. 네, 가능합니다. 정규직·계약직 외에 아르바이트, 프리랜서, 일용직도 월 소득 10만원 이상이면 근로소득자로 인정됩니다. 소득 증빙 서류(급여명세서, 소득확인증명서 등)를 제출해야 합니다.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
         Q. 청년도약계좌와 동시에 가입할 수 있나요? <span>▼</span>
-      </div>
+      </button>
       <div class="faq-a">A. 네, 자격 요건이 각각 충족된다면 청년내일저축계좌와 청년도약계좌를 동시에 유지할 수 있습니다. 단, 자금 여유와 납입 부담을 고려해 신중히 결정하세요.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
         Q. 중간에 직장을 잃으면 어떻게 되나요? <span>▼</span>
-      </div>
+      </button>
       <div class="faq-a">A. 취업 상태가 유지되지 않으면 정부 적립이 중단될 수 있습니다. 단, 일정 기간 내 재취업 시 유지가 가능한 경우도 있으므로 담당 주민센터에 즉시 신고하고 안내를 받으세요.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
         Q. 2026년 신청은 언제인가요? <span>▼</span>
-      </div>
+      </button>
       <div class="faq-a">A. 통상 연 1회 상반기(4~5월) 모집을 진행합니다. 정확한 모집 일정은 복지로(bokjiro.go.kr) 공지사항 또는 주소지 주민센터에서 확인하시기 바랍니다.</div>
     </div>
 
@@ -213,7 +232,7 @@
   </div><!-- /post-body -->
 
   <div style="margin-top:36px;padding-top:24px;border-top:1px solid var(--border);font-size:0.82rem;color:#aaa;">
-    ※ 본 정보는 참고용입니다. 정확한 지원 금액·자격·신청 기간은 <a href="https://www.bokjiro.go.kr" target="_blank" rel="noopener" style="color:var(--primary);">복지로 공식 사이트</a> 또는 주민센터에서 반드시 확인하시기 바랍니다.
+    ※ 본 정보는 참고용입니다. 정확한 지원 금액·자격·신청 기간은 <a href="https://www.bokjiro.go.kr" target="_blank" rel="noopener noreferrer" style="color:var(--primary);">복지로 공식 사이트</a> 또는 주민센터에서 반드시 확인하시기 바랍니다.
   </div>
 
 </div><!-- /post-wrap -->
@@ -243,8 +262,8 @@
       <div style="font-weight:700;color:#dde3ed;margin-bottom:10px;">바로가기</div>
       <div class="footer-links">
         <a href="../index.html">복지모아 홈</a>
-        <a href="https://www.bokjiro.go.kr" target="_blank" rel="noopener">복지로</a>
-        <a href="https://www.gov.kr" target="_blank" rel="noopener">정부24</a>
+        <a href="https://www.bokjiro.go.kr" target="_blank" rel="noopener noreferrer">복지로</a>
+        <a href="https://www.gov.kr" target="_blank" rel="noopener noreferrer">정부24</a>
       </div>
     </div>
   </div>
