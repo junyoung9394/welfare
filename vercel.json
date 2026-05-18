@@ -2,9 +2,5 @@
   "functions": {
     "api/bokjiro.js": { "runtime": "nodejs20.x" },
     "api/work24.js":  { "runtime": "nodejs20.x" }
-  },
-  "env": {
-    "BOKJIRO_API_KEY": "@bokjiro_api_key",
-    "WORK24_API_KEY":  "@work24_api_key"
   }
 }
