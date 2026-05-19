@@ -260,3 +260,56 @@ img { max-width: 100%; display: block; }
   .footer-inner { grid-template-columns: 1fr; gap: 20px; }
   .post-card { flex-direction: column; gap: 10px; }
 }
+
+/* ===== DARK MODE ===== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: #4d9de0;
+    --primary-dark: #2d7fc0;
+    --primary-light: #1a2d42;
+    --text: #e8ecf4;
+    --text-sub: #9aa5bc;
+    --border: #2a3348;
+    --bg: #111827;
+    --white: #1e2635;
+    --shadow: 0 2px 12px rgba(0,0,0,0.4);
+  }
+  body { background: #111827; }
+  .site-header { background: #1e2635; border-color: #2a3348; }
+  .hero { background: linear-gradient(135deg, #0d4a8a 0%, #1a5fa0 100%); }
+  .site-footer { background: #0d111a; }
+  .footer-bottom { border-color: #1e2635; }
+  .info-table th { background: #0d4a8a; }
+  .info-table tr:nth-child(even) td { background: #161f30; }
+  .post-summary { background: #1a2d42; border-color: #4d9de0; }
+  .faq-q { background: #161f30; }
+  .faq-item.open .faq-q { background: #1a2d42; }
+  .highlight-box { background: #2a2010; border-color: #8a6820; }
+  .step-num { background: #0d4a8a; }
+  .related-card { background: #1e2635; border-color: #2a3348; }
+  .related-card:hover { border-color: #4d9de0; }
+  .search-box { background: #1e2635; }
+  .search-box input { background: #1e2635; color: var(--text); }
+  .filter-bar { background: #1e2635; }
+  .filter-select { background: #1e2635; color: var(--text); border-color: #2a3348; }
+  .result-card { background: #1e2635; border-color: #2a3348; }
+  .sidebar-card { background: #1e2635; border-color: #2a3348; }
+  .post-card { background: #1e2635; border-color: #2a3348; }
+  .cat-card { background: #1e2635; border-color: #2a3348; }
+}
+
+/* ===== BACK TO TOP ===== */
+#back-to-top {
+  position: fixed; bottom: 28px; right: 24px;
+  width: 44px; height: 44px;
+  background: var(--primary); color: #fff;
+  border: none; border-radius: 50%;
+  font-size: 1.2rem; cursor: pointer;
+  box-shadow: 0 4px 14px rgba(26,111,196,0.35);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.25s, transform 0.25s;
+  z-index: 999;
+}
+#back-to-top.visible { opacity: 1; pointer-events: auto; }
+#back-to-top:hover { transform: translateY(-3px); }

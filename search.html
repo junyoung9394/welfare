@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="naver-site-verification" content="7541a877bee52c44beb6410f16a62f585a44ad99" />
+  <link rel="manifest" href="manifest.json">
+  <link rel="alternate" type="application/rss+xml" title="복지모아 RSS" href="https://welfare.luckygrampus.com/feed.xml">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <meta name="theme-color" content="#1a6fc4">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -66,6 +68,7 @@
   gtag('js', new Date());
   gtag('config', 'G-8L1DP9KW1N');
 </script>
+<script src="js/ga-events.js" defer></script>
 </head>
 <body>
 
@@ -269,16 +272,24 @@ function renderResults(list, fromApi) {
         + '</div></div>';
     }).join('');
   } else {
-    // 로컬 데이터 렌더링
-    container.innerHTML = list.map(function(b) {
-      return '<a href="' + b.url + '" class="result-card">'
+    // 로컬 데이터 렌더링 — 5개마다 인아티클 광고 삽입
+    const AD_UNIT = '<div style="margin:8px 0;">'
+      + '<ins class="adsbygoogle" style="display:block;text-align:center;"'
+      + ' data-ad-layout="in-article" data-ad-format="fluid"'
+      + ' data-ad-client="ca-pub-8518556382646891"'
+      + ' data-ad-slot="5445109426"></ins>'
+      + '<script>(adsbygoogle=window.adsbygoogle||[]).push({});<\/script></div>';
+    const parts = list.map(function(b, i) {
+      var card = '<a href="' + b.url + '" class="result-card">'
         + '<div class="post-badge">' + b.icon + '</div>'
         + '<div class="post-info">'
         + '<div class="result-tag">' + b.cat + '</div>'
         + '<div class="post-title">' + b.title + '</div>'
         + '<div class="post-desc">' + b.desc + '</div>'
         + '</div></a>';
-    }).join('');
+      return (i > 0 && i % 5 === 0) ? AD_UNIT + card : card;
+    });
+    container.innerHTML = parts.join('');
   }
 }
 
@@ -341,6 +352,15 @@ async function doFilter() {
   }
 
   doFilter();
+})();
+</script>
+<button id="back-to-top" aria-label="맨 위로" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>
+(function(){
+  var btn = document.getElementById('back-to-top');
+  window.addEventListener('scroll', function(){
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, {passive: true});
 })();
 </script>
 </body>

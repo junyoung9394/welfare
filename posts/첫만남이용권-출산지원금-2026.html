@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="naver-site-verification" content="7541a877bee52c44beb6410f16a62f585a44ad99" />
+  <link rel="manifest" href="../manifest.json">
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <meta name="theme-color" content="#1a6fc4">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -75,6 +76,18 @@
   gtag('js', new Date());
   gtag('config', 'G-8L1DP9KW1N');
 </script>
+<script src="../js/ga-events.js" defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type":"ListItem","position":1,"name":"복지모아","item":"https://welfare.luckygrampus.com/"},
+      {"@type":"ListItem","position":2,"name":"육아·가족지원","item":"https://welfare.luckygrampus.com/search.html?cat=육아"},
+      {"@type":"ListItem","position":3,"name":"첫만남이용권 출산지원금 2026 (첫째 200만원, 둘째 이상 300만원)","item":"https://welfare.luckygrampus.com/posts/첫만남이용권-출산지원금-2026.html"}
+    ]
+  }
+  </script>
 </head>
 <body>
 <header class="site-header">
@@ -244,5 +257,15 @@
   </div>
   <div class="footer-bottom"><p>© 2026 복지모아 · 본 사이트는 정보 제공 목적이며, 공식 지원금 신청은 각 부처 공식 사이트에서 하시기 바랍니다.</p></div>
 </footer>
+
+<button id="back-to-top" aria-label="맨 위로" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>
+(function(){
+  var btn = document.getElementById('back-to-top');
+  window.addEventListener('scroll', function(){
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, {passive: true});
+})();
+</script>
 </body>
 </html>

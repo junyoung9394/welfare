@@ -2,6 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
+  <link rel="manifest" href="../manifest.json">
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <meta name="theme-color" content="#1a6fc4">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -66,6 +67,18 @@
     "author": {"@type": "Organization", "name": "복지모아", "url": "https://welfare.luckygrampus.com"},
     "publisher": {"@type": "Organization", "name": "복지모아", "url": "https://welfare.luckygrampus.com"},
     "image": "https://welfare.luckygrampus.com/og-default.png"
+  }
+  </script>
+<script src="../js/ga-events.js" defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type":"ListItem","position":1,"name":"복지모아","item":"https://welfare.luckygrampus.com/"},
+      {"@type":"ListItem","position":2,"name":"기초생활·저소득","item":"https://welfare.luckygrampus.com/search.html?cat=기초생활"},
+      {"@type":"ListItem","position":3,"name":"복지멤버십 신청 방법 2026 — 내가 받을 수 있는 복지 한번에","item":"https://welfare.luckygrampus.com/posts/복지멤버십-신청-방법-2026.html"}
+    ]
   }
   </script>
 </head>
@@ -292,6 +305,16 @@ function toggleFaq(btn) {
     btn.setAttribute('aria-expanded', 'true');
   }
 }
+</script>
+
+<button id="back-to-top" aria-label="맨 위로" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>
+(function(){
+  var btn = document.getElementById('back-to-top');
+  window.addEventListener('scroll', function(){
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, {passive: true});
+})();
 </script>
 </body>
 </html>

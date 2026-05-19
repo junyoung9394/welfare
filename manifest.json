@@ -1,0 +1,13 @@
+{
+  "name": "복지모아",
+  "short_name": "복지모아",
+  "description": "2026 정부 지원금·복지혜택 정보 총정리",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a6fc4",
+  "theme_color": "#1a6fc4",
+  "lang": "ko",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
