@@ -1,63 +1,69 @@
 /**
- * 복지로 OpenAPI 연동 모듈
- * API 키 발급: https://www.bokjiro.go.kr/ssis-tbu/twatd/openapi/openApiManage.do
+ * 복지모아 API 연동 모듈
  *
- * 사용법:
- *   1. 아래 BOKJIRO_API_KEY 에 발급받은 키를 입력
- *   2. search.html 에서 <script src="js/api.js"></script> 추가
- *   3. searchBokjiro('청년 월세') 형태로 호출
+ * [API 키 설정 방법]
+ * - 로컬 개발: js/config.example.js 를 복사 → js/config.js 로 저장 후 키 입력
+ *   (js/config.js 는 .gitignore 에 포함되어 git 에 올라가지 않습니다)
+ * - Vercel 배포: 대시보드 > Settings > Environment Variables 에서 설정
+ *     BOKJIRO_API_KEY — 복지로 OpenAPI 키 (https://www.bokjiro.go.kr)
+ *     WORK24_API_KEY  — 고용24 API 키    (https://www.work24.go.kr)
+ *   키가 Vercel 에 등록되면 /api/bokjiro, /api/work24 프록시가 자동으로 동작합니다.
  */
 
-const BOKJIRO_API_KEY = 'sUl0xfEp9wcBrWjayiTv5+ixiC9mwyYp7+47Ezx/Ux6W3cfOL2f1PdOaKwvDcSK2QuSrs8A9QPf90w/vpI9r/w==';
+// ──────────────────────────────────────────
+// 복지로 API
+// ──────────────────────────────────────────
+const BOKJIRO_PROXY_URL  = '/api/bokjiro';
+const BOKJIRO_DIRECT_URL = 'https://www.bokjiro.go.kr/ssis-tbu/twatd/openapi/selectWlfInfo.do';
 
-const BOKJIRO_BASE_URL = 'https://www.bokjiro.go.kr/ssis-tbu/twatd/openapi/selectWlfInfo.do';
+function _bokjiroKey() {
+  return window.WELFARE_CONFIG?.BOKJIRO_API_KEY || null;
+}
 
-/**
- * 복지로 API 검색
- * @param {string} keyword - 검색 키워드
- * @param {Object} options - 추가 필터 옵션
- * @param {number} options.pageIndex - 페이지 번호 (기본 1)
- * @param {number} options.pageSize - 페이지당 결과 수 (기본 10)
- */
 async function searchBokjiro(keyword, options = {}) {
+  const key = _bokjiroKey();
   const params = new URLSearchParams({
-    serviceKey: BOKJIRO_API_KEY,
-    callTp: 'L',           // L: 목록조회
+    callTp: 'L',
     srchWrd: keyword,
     pageIndex: options.pageIndex || 1,
-    pageSize: options.pageSize || 10,
+    pageSize:  options.pageSize  || 10,
     _type: 'json',
   });
 
-  // CORS 이슈 때문에 프록시를 거쳐야 할 수 있음
-  // Vercel Edge Function 또는 serverless function 사용 권장
-  const url = `${BOKJIRO_BASE_URL}?${params.toString()}`;
+  // 로컬 config.js 에 키가 있으면 직접 호출, 없으면 Vercel 프록시 사용
+  let url;
+  if (key) {
+    params.set('serviceKey', key);
+    url = `${BOKJIRO_DIRECT_URL}?${params}`;
+  } else {
+    url = `${BOKJIRO_PROXY_URL}?${params}`;
+  }
 
   try {
     const res = await fetch(url);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
-    return parseBokjiroResponse(data);
+    return _parseBokjiro(data);
   } catch (err) {
     console.error('복지로 API 오류:', err);
     return { items: [], totalCount: 0, error: err.message };
   }
 }
 
-function parseBokjiroResponse(data) {
+function _parseBokjiro(data) {
   try {
     const body = data?.wlfInfoRsSVO?.wlfInfoDtlDTO || [];
     const totalCount = data?.wlfInfoRsSVO?.totalCount || 0;
     const items = (Array.isArray(body) ? body : [body]).map(function(item) {
       return {
-        id: item.servId,
-        title: item.servNm,
-        summary: item.servDgst,
-        target: item.tgtrDtlCn,
+        id:          item.servId,
+        title:       item.servNm,
+        summary:     item.servDgst,
+        target:      item.tgtrDtlCn,
         supportType: item.srvPvsnNm,
-        applyUrl: item.aplyUrlAddr,
-        department: item.jurMnofNm,
-        period: item.lifeNmChk,
+        applyUrl:    item.aplyUrlAddr,
+        department:  item.jurMnofNm,
+        period:      item.lifeNmChk,
       };
     });
     return { items, totalCount };
@@ -66,19 +72,20 @@ function parseBokjiroResponse(data) {
   }
 }
 
-/**
- * 복지로 API — 상세 조회
- * @param {string} servId - 서비스 ID
- */
 async function getBokjiroDetail(servId) {
-  const params = new URLSearchParams({
-    serviceKey: BOKJIRO_API_KEY,
-    callTp: 'D',
-    servId,
-    _type: 'json',
-  });
+  const key = _bokjiroKey();
+  const params = new URLSearchParams({ callTp: 'D', servId, _type: 'json' });
+
+  let url;
+  if (key) {
+    params.set('serviceKey', key);
+    url = `${BOKJIRO_DIRECT_URL}?${params}`;
+  } else {
+    url = `${BOKJIRO_PROXY_URL}?${params}`;
+  }
+
   try {
-    const res = await fetch(`${BOKJIRO_BASE_URL}?${params.toString()}`);
+    const res = await fetch(url);
     const data = await res.json();
     return data?.wlfInfoRsSVO?.wlfInfoDtlDTO || null;
   } catch (err) {
@@ -87,23 +94,35 @@ async function getBokjiroDetail(servId) {
   }
 }
 
-/**
- * 고용24 API — 청년 취업 지원 프로그램 검색
- * API 키 발급: https://www.work24.go.kr/cm/c/f/apiApplList.do
- */
-const WORK24_API_KEY = 'YOUR_WORK24_API_KEY_HERE'; // ← 고용24 API 키
-const WORK24_BASE_URL = 'https://www.work24.go.kr/wk/a/b/1200/retrivePolicyMberList.do';
+// ──────────────────────────────────────────
+// 고용24 API
+// ──────────────────────────────────────────
+const WORK24_PROXY_URL  = '/api/work24';
+const WORK24_DIRECT_URL = 'https://www.work24.go.kr/wk/a/b/1200/retrivePolicyMberList.do';
+
+function _work24Key() {
+  return window.WELFARE_CONFIG?.WORK24_API_KEY || null;
+}
 
 async function searchWork24(keyword, options = {}) {
+  const key = _work24Key();
   const params = new URLSearchParams({
-    authKey: WORK24_API_KEY,
     returnType: 'JSON',
     startPage: options.pageIndex || 1,
-    display: options.pageSize || 10,
+    display:   options.pageSize  || 10,
     keyword,
   });
+
+  let url;
+  if (key) {
+    params.set('authKey', key);
+    url = `${WORK24_DIRECT_URL}?${params}`;
+  } else {
+    url = `${WORK24_PROXY_URL}?${params}`;
+  }
+
   try {
-    const res = await fetch(`${WORK24_BASE_URL}?${params.toString()}`);
+    const res = await fetch(url);
     const data = await res.json();
     return data?.workPolicyList || [];
   } catch (err) {
@@ -112,7 +131,7 @@ async function searchWork24(keyword, options = {}) {
   }
 }
 
-// 외부에서 사용할 수 있도록 전역 노출
+// 외부 노출
 window.WelfareAPI = {
   searchBokjiro,
   getBokjiroDetail,
