@@ -54,6 +54,18 @@
   gtag('js', new Date());
   gtag('config', 'G-8L1DP9KW1N');
 </script>
+<script src="../js/ga-events.js" defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type":"ListItem","position":1,"name":"복지모아","item":"https://welfare.luckygrampus.com/"},
+      {"@type":"ListItem","position":2,"name":"청년지원","item":"https://welfare.luckygrampus.com/search.html?cat=청년"},
+      {"@type":"ListItem","position":3,"name":"청년내일채움공제 2026 — 2년 만기 1,200만원 목돈 마련","item":"https://welfare.luckygrampus.com/posts/청년-내일채움공제-2026.html"}
+    ]
+  }
+  </script>
 </head>
 <body>
 <header class="site-header">
@@ -188,6 +200,16 @@
       q.closest('.faq-item').classList.toggle('open');
     });
   });
+</script>
+
+<button id="back-to-top" aria-label="맨 위로" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>
+(function(){
+  var btn = document.getElementById('back-to-top');
+  window.addEventListener('scroll', function(){
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, {passive: true});
+})();
 </script>
 </body>
 </html>

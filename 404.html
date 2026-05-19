@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>페이지를 찾을 수 없어요 – 복지모아</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="naver-site-verification" content="7541a877bee52c44beb6410f16a62f585a44ad99" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8L1DP9KW1N"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8L1DP9KW1N');</script>
+
+  <!-- AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8518556382646891" crossorigin="anonymous"></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background: #f5f7fb;
+      color: #222;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Header ── */
+    .site-header {
+      background: #1a6fc4;
+      color: #fff;
+      padding: 0 1.25rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,.18);
+    }
+    .header-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      height: 56px;
+      display: flex;
+      align-items: center;
+    }
+    .logo {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+      letter-spacing: -.5px;
+    }
+    .logo:hover { opacity: .88; }
+
+    /* ── Main content ── */
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1.25rem;
+    }
+    .error-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(26,111,196,.10);
+      padding: 2.5rem 2rem;
+      max-width: 560px;
+      width: 100%;
+      text-align: center;
+    }
+    .error-emoji {
+      font-size: 4rem;
+      line-height: 1;
+      margin-bottom: .75rem;
+    }
+    .error-code {
+      font-size: 5rem;
+      font-weight: 700;
+      color: #1a6fc4;
+      line-height: 1;
+      letter-spacing: -2px;
+    }
+    .error-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin: .75rem 0 .5rem;
+      color: #111;
+    }
+    .error-desc {
+      font-size: .95rem;
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 1.75rem;
+    }
+
+    /* ── Search box ── */
+    .search-form {
+      display: flex;
+      gap: .5rem;
+      margin-bottom: 2rem;
+    }
+    .search-form input[type="search"] {
+      flex: 1;
+      padding: .65rem 1rem;
+      border: 1.5px solid #c8d9ef;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: .95rem;
+      outline: none;
+      transition: border-color .2s;
+      background: #f5f7fb;
+    }
+    .search-form input[type="search"]:focus { border-color: #1a6fc4; background: #fff; }
+    .search-form button {
+      padding: .65rem 1.1rem;
+      background: #1a6fc4;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: .95rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background .2s;
+      white-space: nowrap;
+    }
+    .search-form button:hover { background: #155ba0; }
+
+    /* ── Popular posts ── */
+    .popular-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #1a6fc4;
+      margin-bottom: .9rem;
+      text-align: left;
+    }
+    .popular-list {
+      list-style: none;
+      text-align: left;
+    }
+    .popular-list li {
+      border-bottom: 1px solid #eef1f6;
+    }
+    .popular-list li:last-child { border-bottom: none; }
+    .popular-list a {
+      display: block;
+      padding: .65rem .25rem;
+      color: #1a6fc4;
+      text-decoration: none;
+      font-size: .92rem;
+      font-weight: 500;
+      transition: color .15s, padding-left .15s;
+    }
+    .popular-list a::before {
+      content: '→ ';
+      color: #94b8e0;
+    }
+    .popular-list a:hover { color: #0d4d8a; padding-left: .35rem; }
+
+    /* ── Home button ── */
+    .home-btn {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: .7rem 1.8rem;
+      background: #1a6fc4;
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: .95rem;
+      transition: background .2s;
+    }
+    .home-btn:hover { background: #155ba0; }
+
+    /* ── Footer ── */
+    .site-footer {
+      background: #1d2b3a;
+      color: #8ea7c0;
+      text-align: center;
+      padding: 1.25rem;
+      font-size: .8rem;
+      line-height: 1.7;
+    }
+    .site-footer a { color: #8ea7c0; text-decoration: none; }
+    .site-footer a:hover { color: #fff; }
+
+    @media (max-width: 480px) {
+      .error-code { font-size: 3.5rem; }
+      .error-card { padding: 2rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="logo">🏛️ 복지모아</a>
+    </div>
+  </header>
+
+  <!-- 404 Content -->
+  <main>
+    <div class="error-card">
+      <div class="error-emoji">🔍</div>
+      <div class="error-code">404</div>
+      <h1 class="error-title">페이지를 찾을 수 없어요</h1>
+      <p class="error-desc">
+        요청하신 페이지가 삭제되었거나 주소가 변경되었을 수 있어요.<br />
+        아래 검색창이나 인기 글 목록을 이용해 원하시는 정보를 찾아보세요.
+      </p>
+
+      <!-- Search -->
+      <form class="search-form" action="/search.html" method="get" role="search">
+        <input type="search" name="q" placeholder="복지 혜택 검색…" aria-label="검색어 입력" />
+        <button type="submit">검색</button>
+      </form>
+
+      <!-- Popular posts -->
+      <p class="popular-title">📋 인기 복지 정보</p>
+      <ul class="popular-list">
+        <li><a href="/posts/청년-월세-지원금-2026.html">청년 월세 지원금 신청 방법 (2026)</a></li>
+        <li><a href="/posts/근로장려금-신청-2026.html">근로장려금 신청 방법 및 지급일 (2026)</a></li>
+        <li><a href="/posts/기초연금-신청-방법-2026.html">기초연금 신청 방법 총정리 (2026)</a></li>
+        <li><a href="/posts/부모급여-신청-방법-2026.html">부모급여 신청 방법 및 금액 안내 (2026)</a></li>
+        <li><a href="/posts/에너지-바우처-신청방법-2026.html">에너지 바우처 신청 방법 (2026)</a></li>
+        <li><a href="/posts/국민취업지원제도-신청방법-2026.html">국민취업지원제도 신청 방법 (2026)</a></li>
+      </ul>
+
+      <a href="/" class="home-btn">🏠 홈으로 돌아가기</a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>© 2026 복지모아 — 2026 정부 지원금·복지혜택 정보 총정리</p>
+    <p><a href="/">홈</a> · <a href="/search.html">검색</a> · <a href="/posts/청년-월세-지원금-2026.html">청년 복지</a></p>
+  </footer>
+
+</body>
+</html>

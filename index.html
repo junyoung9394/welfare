@@ -30,9 +30,12 @@
     }
   }
   </script>
+  <link rel="manifest" href="manifest.json">
+  <link rel="alternate" type="application/rss+xml" title="복지모아 RSS" href="https://welfare.luckygrampus.com/feed.xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/ga-events.js" defer></script>
   <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8518556382646891" crossorigin="anonymous"></script>
 <!-- Google Analytics -->
@@ -805,5 +808,15 @@
 </footer>
 
 <script src="js/main.js"></script>
+
+<button id="back-to-top" aria-label="맨 위로" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>
+(function(){
+  var btn = document.getElementById('back-to-top');
+  window.addEventListener('scroll', function(){
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, {passive: true});
+})();
+</script>
 </body>
 </html>

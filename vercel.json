@@ -2,5 +2,9 @@
   "functions": {
     "api/bokjiro.js": { "runtime": "nodejs20.x" },
     "api/work24.js":  { "runtime": "nodejs20.x" }
-  }
+  },
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/404.html", "status": 404 }
+  ]
 }
