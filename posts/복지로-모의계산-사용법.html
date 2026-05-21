@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="naver-site-verification" content="7541a877bee52c44beb6410f16a62f585a44ad99" />
+  <link rel="manifest" href="../manifest.json">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#1a6fc4">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>복지로 모의계산 사용법 총정리 — 내가 받을 수 있는 지원금 미리 확인하기 | 복지모아</title>
+  <meta name="description" content="복지로(bokjiro.go.kr) 복지서비스 모의계산 사용 방법을 단계별로 안내합니다. 생계급여·주거급여·기초연금·장애인연금 등 신청 전 자격 여부를 미리 확인하세요.">
+  <link rel="canonical" href="https://welfare.luckygrampus.com/posts/복지로-모의계산-사용법.html">
+  <meta property="og:title" content="복지로 모의계산 사용법 총정리 — 내가 받을 수 있는 지원금 미리 확인하기">
+  <meta property="og:description" content="복지로 모의계산으로 생계·의료·주거·교육급여, 기초연금, 장애인연금 자격을 신청 전 미리 확인하세요.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://welfare.luckygrampus.com/posts/복지로-모의계산-사용법.html">
+  <meta property="og:image" content="https://welfare.luckygrampus.com/og-default.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .post-wrap { max-width: 780px; margin: 0 auto; padding: 40px 20px; }
+    .post-header { margin-bottom: 28px; }
+    .post-label { font-size: 0.8rem; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; }
+    .post-h1 { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 800; line-height: 1.35; color: var(--text); margin-bottom: 14px; }
+    .post-summary { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 14px 18px; border-radius: 0 8px 8px 0; font-size: 0.95rem; color: var(--text); margin-bottom: 24px; line-height: 1.7; }
+    .post-summary strong { color: var(--primary); }
+    .post-body h2 { font-size: 1.2rem; font-weight: 800; margin: 32px 0 12px; padding-bottom: 8px; border-bottom: 2px solid var(--border); color: var(--text); }
+    .post-body h3 { font-size: 1rem; font-weight: 700; margin: 20px 0 8px; color: var(--text); }
+    .post-body p { font-size: 0.95rem; line-height: 1.8; color: #333; margin-bottom: 12px; }
+    .post-body ul, .post-body ol { padding-left: 22px; margin-bottom: 14px; }
+    .post-body li { font-size: 0.93rem; line-height: 1.8; color: #333; margin-bottom: 4px; }
+    .info-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.9rem; }
+    .info-table th { background: var(--primary); color: #fff; padding: 10px 14px; text-align: left; font-weight: 700; }
+    .info-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); }
+    .info-table tr:nth-child(even) td { background: var(--bg); }
+    .step-box { counter-reset: step; }
+    .step { display: flex; gap: 14px; margin-bottom: 16px; }
+    .step-num { min-width: 32px; height: 32px; background: var(--primary); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.9rem; flex-shrink: 0; margin-top: 2px; }
+    .step-content { flex: 1; }
+    .step-content strong { display: block; font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; }
+    .step-content span { font-size: 0.88rem; color: var(--text-sub); line-height: 1.6; }
+    .faq-item { border: 1px solid var(--border); border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
+    .faq-q { padding: 14px 18px; font-weight: 700; font-size: 0.93rem; cursor: pointer; background: var(--bg); display: flex; justify-content: space-between; align-items: center; border: none; width: 100%; text-align: left; font-family: var(--font); color: var(--text); }
+    .faq-a { padding: 12px 18px; font-size: 0.9rem; line-height: 1.7; color: var(--text-sub); display: none; border-top: 1px solid var(--border); }
+    .faq-item.open .faq-a { display: block; }
+    .faq-item.open .faq-q { background: var(--primary-light); color: var(--primary); }
+    .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .related-card { border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; transition: border-color 0.15s; text-decoration: none; display: block; }
+    .related-card:hover { border-color: var(--primary); }
+    .related-card .rc-icon { font-size: 1.5rem; margin-bottom: 6px; }
+    .related-card .rc-title { font-size: 0.88rem; font-weight: 700; color: var(--text); line-height: 1.4; }
+    .highlight-box { background: #fff8e1; border: 1px solid #f4c842; border-radius: 10px; padding: 14px 18px; margin: 16px 0; font-size: 0.9rem; line-height: 1.7; }
+    .highlight-box strong { color: #c87820; }
+    @media (max-width: 600px) { .related-grid { grid-template-columns: 1fr; } }
+  </style>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8518556382646891" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"복지로 모의계산 사용법 총정리 — 내가 받을 수 있는 지원금 미리 확인하기","description":"복지로(bokjiro.go.kr) 복지서비스 모의계산 사용 방법을 단계별로 안내합니다. 생계급여·주거급여·기초연금·장애인연금 등 신청 전 자격 여부를 미리 확인하세요.","url":"https://welfare.luckygrampus.com/posts/복지로-모의계산-사용법.html","datePublished":"2026-05-21","dateModified":"2026-05-21","inLanguage":"ko-KR","author":{"@type":"Organization","name":"복지모아","url":"https://welfare.luckygrampus.com"},"publisher":{"@type":"Organization","name":"복지모아","url":"https://welfare.luckygrampus.com"},"image":"https://welfare.luckygrampus.com/og-default.png"}</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8L1DP9KW1N"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8L1DP9KW1N');</script>
+  <script src="../js/ga-events.js" defer></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo"><span class="logo-icon">🏛️</span><span>복지모아</span></a>
+    <nav class="site-nav">
+      <a href="/">홈</a>
+      <a href="../search.html">지원금 검색</a>
+      <a href="/#categories">카테고리</a>
+    </nav>
+  </div>
+</header>
+
+<div class="post-wrap">
+  <div class="post-header">
+    <div class="post-label">복지 정보 · 활용 가이드</div>
+    <h1 class="post-h1">복지로 모의계산 사용법 총정리 — 내가 받을 수 있는 지원금 미리 확인하기</h1>
+    <div class="post-summary"><strong>핵심 요약:</strong> 복지로(bokjiro.go.kr) 모의계산 서비스를 이용하면 생계·의료·주거·교육급여, 기초연금, 장애인연금 등의 수급 자격을 신청 전에 미리 확인할 수 있습니다. 소득·재산 정보 입력만으로 약 10분 이내 자가 점검이 가능합니다.</div>
+  </div>
+
+  <!-- 상단 광고 -->
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8518556382646891" data-ad-slot="4593096138" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+  <div class="post-body">
+    <h2>모의계산 가능한 서비스 목록</h2>
+    <p>복지로 모의계산 서비스는 대표적인 복지급여 8종에 대해 자가 자격 점검 기능을 제공합니다. 실제 심사와 동일한 소득인정액 산정 방식을 사용하기 때문에, 결과가 비교적 정확합니다. 단, 개별 상황에 따라 실제 심사 결과와 다를 수 있으므로 참고용으로 활용하세요.</p>
+
+    <table class="info-table">
+      <thead>
+        <tr><th>서비스명</th><th>주요 확인 내용</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>기초생활수급(생계급여)</strong></td><td>소득인정액 기준 32% 이하 여부, 예상 급여액</td></tr>
+        <tr><td><strong>기초생활수급(의료급여)</strong></td><td>소득인정액 기준 40% 이하 여부</td></tr>
+        <tr><td><strong>기초생활수급(주거급여)</strong></td><td>소득인정액 기준 48% 이하, 예상 임차급여액</td></tr>
+        <tr><td><strong>기초생활수급(교육급여)</strong></td><td>소득인정액 기준 50% 이하 여부</td></tr>
+        <tr><td><strong>기초연금</strong></td><td>만 65세 이상, 소득인정액 기준 여부</td></tr>
+        <tr><td><strong>장애인연금</strong></td><td>중증장애인 소득인정액 기준 여부</td></tr>
+        <tr><td><strong>한부모가족 지원</strong></td><td>한부모 해당 여부, 지원 금액 확인</td></tr>
+        <tr><td><strong>청년 월세 지원</strong></td><td>청년 소득·재산 기준 충족 여부</td></tr>
+      </tbody>
+    </table>
+
+    <p>모의계산 결과는 '해당 가능', '해당 없음', '추가 확인 필요' 세 가지로 구분됩니다. '해당 가능'으로 나오면 실제 신청을 진행하고, '추가 확인 필요'인 경우 주민센터나 복지로 전화상담(129)을 이용하면 더 정확한 안내를 받을 수 있습니다.</p>
+
+    <div class="highlight-box">
+      <strong>복지로 바로 이동:</strong> <a href="https://www.bokjiro.go.kr" target="_blank" rel="noopener noreferrer" style="color:#c87820;font-weight:700;">bokjiro.go.kr</a> 접속 후 상단 메뉴 '복지서비스' → '복지서비스 모의계산'을 클릭하면 바로 이용할 수 있습니다. 비로그인 상태에서도 무료로 이용 가능합니다.
+    </div>
+
+    <h2>모의계산 결과 활용법</h2>
+    <p>모의계산 결과를 올바르게 해석하고 활용하는 방법을 알아두면 신청 준비에 큰 도움이 됩니다. 특히 소득인정액 계산 시 각종 공제 항목이 자동 반영되므로 결과가 예상보다 유리하게 나오는 경우도 많습니다.</p>
+
+    <h3>결과 해석 방법</h3>
+    <ul>
+      <li>'해당 가능' 표시 → 실제 신청 진행 강력 권장</li>
+      <li>'해당 없음' → 모의계산 결과일 뿐이므로 주민센터 상담도 고려</li>
+      <li>주의사항: 모의계산 결과는 참고용이며 실제 심사 결과와 다를 수 있음</li>
+    </ul>
+
+    <h3>소득인정액 산정 방식</h3>
+    <ul>
+      <li><strong>재산 기본공제 적용:</strong> 기본재산공제액(지역별 상이)이 자동 반영됨 (대도시 6,900만원, 중소도시 4,200만원, 농어촌 3,500만원)</li>
+      <li><strong>금융재산 공제:</strong> 생활준비금 500만원 공제 후 적용</li>
+      <li><strong>소득환산율:</strong> 재산 종류에 따라 월 소득 환산율 다름 (일반재산 4.17%, 금융재산 6.26%, 자동차 100%)</li>
+      <li><strong>근로소득 공제:</strong> 근로소득 30% 공제 + 기본공제 적용</li>
+    </ul>
+
+    <!-- 중간 광고 -->
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8518556382646891" data-ad-slot="4593096138" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+    <h2>단계별 모의계산 사용 방법</h2>
+    <p>복지로 모의계산은 회원가입 없이도 이용 가능하며, 입력한 정보는 서버에 저장되지 않습니다. 가구원 수와 소득·재산 정보를 정확히 입력할수록 더 신뢰할 수 있는 결과를 얻을 수 있습니다.</p>
+
+    <div class="step-box">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <strong>복지로 접속</strong>
+          <span>bokjiro.go.kr에 접속한 후 상단 메뉴에서 '복지서비스'를 클릭합니다. 하위 메뉴에서 '복지서비스 모의계산'을 선택하면 모의계산 페이지로 이동합니다. 모바일에서도 동일하게 이용 가능합니다.</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <strong>서비스 선택</strong>
+          <span>확인하려는 급여 또는 서비스를 선택합니다. 생계급여·의료급여·주거급여·교육급여는 동시에 다중 선택이 가능하며, 기초연금·장애인연금·한부모 지원 등은 별도로 선택하여 계산합니다.</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <strong>가구 정보 입력</strong>
+          <span>가구원 수, 각 가구원의 나이, 장애 여부, 임신·출산 여부, 학생 여부 등을 입력합니다. 동일 주민등록상 가구원을 모두 포함해야 하며, 분리 가구 여부도 정확히 체크하세요.</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <strong>소득 정보 입력</strong>
+          <span>가구원 전체의 근로소득, 사업소득, 재산소득(임대료 등), 공적이전소득(국민연금·산재급여 등), 사적이전소득(부양비 등)을 각각 입력합니다. 월 단위 금액으로 입력하며, 공제 전 총액을 입력하면 됩니다.</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-content">
+          <strong>재산 정보 입력</strong>
+          <span>주거용 부동산(시가표준액 기준), 금융재산(예금·적금·주식 등), 자동차(차량 기준가액), 기타 재산을 입력합니다. 임차보증금도 재산으로 반영됩니다. 각 항목별 정확한 시가를 확인 후 입력하세요.</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">6</div>
+        <div class="step-content">
+          <strong>결과 확인</strong>
+          <span>입력 완료 후 '계산하기' 버튼을 누르면 소득인정액 계산 결과와 서비스별 해당 여부가 화면에 표시됩니다. '해당 가능'인 항목은 실제 신청 방법 링크도 함께 안내됩니다.</span>
+        </div>
+      </div>
+    </div>
+
+    <h2>자주 묻는 질문 (FAQ)</h2>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+        Q. 모의계산 결과가 '해당 없음'이면 신청해도 소용없나요?
+        <span>＋</span>
+      </button>
+      <div class="faq-a">반드시 그렇지는 않습니다. 모의계산은 입력한 정보를 기반으로 한 추정이므로, 실제 심사에서 다른 결과가 나올 수 있습니다. 특히 재산 공제나 소득 공제 항목을 정확히 입력하지 않은 경우 결과가 달라질 수 있으므로 주민센터 상담을 추천합니다. 담당 복지사가 더 정확한 소득인정액을 산정해 줄 수 있습니다.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+        Q. 모의계산에 개인정보를 입력해도 안전한가요?
+        <span>＋</span>
+      </button>
+      <div class="faq-a">복지로는 정부 공식 사이트이며, 모의계산 입력 정보는 실제 데이터베이스에 저장되지 않습니다. 비로그인 상태에서도 이용 가능하고, 결과 확인 후 정보가 남지 않습니다. 실명이나 주민등록번호를 입력하지 않아도 모의계산이 가능하므로 안심하고 이용하세요.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+        Q. 가구원 모두의 소득을 입력해야 하나요?
+        <span>＋</span>
+      </button>
+      <div class="faq-a">네, 기초생활급여 모의계산은 동일 주민등록상 가구원 전체의 소득·재산을 합산합니다. 단, 독립 가구로 분리된 자녀, 배우자와 별거 중인 경우 등은 각각 상황에 맞게 입력해야 합니다. 30세 미만 미혼 자녀는 별도 주소로 독립하더라도 가구원으로 포함될 수 있으니 주의가 필요합니다.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+        Q. 모의계산으로 여러 급여를 동시에 확인할 수 있나요?
+        <span>＋</span>
+      </button>
+      <div class="faq-a">네, 가능합니다. '복지서비스 모의계산' 메뉴에서 생계·의료·주거·교육급여를 한 번에 선택하여 동시에 계산하거나, 기초연금·장애인연금 등 다른 서비스를 개별로 확인할 수 있습니다. 한 번에 여러 서비스를 체크하면 가구 정보와 소득·재산을 중복 입력할 필요 없이 한 번에 결과를 확인할 수 있어 편리합니다.</div>
+    </div>
+
+    <h2>함께 보면 좋은 지원금</h2>
+    <div class="related-grid">
+      <a href="생계급여-신청-2026.html" class="related-card">
+        <div class="rc-icon">💰</div>
+        <div class="rc-title">생계급여 — 1인 가구 최대 713,102원</div>
+      </a>
+      <a href="기초연금-신청-2026.html" class="related-card">
+        <div class="rc-icon">👴</div>
+        <div class="rc-title">기초연금 — 단독 최대 334,810원</div>
+      </a>
+      <a href="기초생활수급자-신청-2026.html" class="related-card">
+        <div class="rc-icon">🏠</div>
+        <div class="rc-title">기초생활수급자 — 신청 자격·방법 총정리</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- 하단 광고 -->
+  <ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-fb+5w+4e-db+86" data-ad-client="ca-pub-8518556382646891" data-ad-slot="4066635452"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+  <div style="margin-top:36px;padding-top:24px;border-top:1px solid var(--border);font-size:0.82rem;color:#aaa;">
+    ※ 본 정보는 참고용입니다. 정확한 금액·자격·신청 기간은 <a href="https://www.bokjiro.go.kr" target="_blank" rel="noopener noreferrer" style="color:var(--primary);">복지로 공식 사이트(bokjiro.go.kr)</a> 또는 주민센터에서 반드시 확인하세요.
+  </div>
+</div>
+
+<div class="banner-strip">
+  <h2>다른 지원금도 확인해보세요</h2>
+  <p>나이·지역·가구유형·소득을 입력하면 받을 수 있는 지원금 목록을 바로 확인할 수 있습니다.</p>
+  <a href="../search.html" class="btn-primary">맞춤 지원금 검색 →</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">🏛️ 복지모아</div>
+      <p>정부 지원금·복지혜택 정보를<br>쉽고 빠르게 찾아드립니다.</p>
+    </div>
+    <div>
+      <div style="font-weight:700;color:#dde3ed;margin-bottom:10px;">카테고리</div>
+      <div class="footer-links">
+        <a href="../search.html?cat=청년">청년 지원금</a>
+        <a href="../search.html?cat=근로">근로·소득 지원</a>
+        <a href="../search.html?cat=기초생활">기초생활수급</a>
+        <a href="../search.html?cat=소상공인">소상공인 지원</a>
+      </div>
+    </div>
+    <div>
+      <div style="font-weight:700;color:#dde3ed;margin-bottom:10px;">바로가기</div>
+      <div class="footer-links">
+        <a href="../index.html">복지모아 홈</a>
+        <a href="https://www.bokjiro.go.kr" target="_blank" rel="noopener noreferrer">복지로</a>
+        <a href="https://www.gov.kr" target="_blank" rel="noopener noreferrer">정부24</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 복지모아 · 본 사이트는 정보 제공 목적이며, 공식 지원금 신청은 각 부처 공식 사이트에서 하시기 바랍니다.</p>
+  </div>
+</footer>
+<button id="back-to-top" aria-label="맨 위로" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>
+(function(){var btn=document.getElementById('back-to-top');window.addEventListener('scroll',function(){btn.classList.toggle('visible',window.scrollY>300);},{passive:true});})();
+function toggleFaq(btn){var item=btn.closest('.faq-item');item.classList.toggle('open');btn.setAttribute('aria-expanded',item.classList.contains('open'));}
+</script>
+</body>
+</html>
