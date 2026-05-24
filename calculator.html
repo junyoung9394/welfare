@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="naver-site-verification" content="7541a877bee52c44beb6410f16a62f585a44ad99" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#1a6fc4">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>지원금 수령액 계산기 2026 | 복지모아</title>
+  <meta name="description" content="내 나이·가구·소득을 입력하면 받을 수 있는 정부 지원금과 예상 수령액을 바로 계산해드립니다. 2026년 최신 기준 적용.">
+  <link rel="canonical" href="https://welfare.luckygrampus.com/calculator.html">
+  <meta property="og:title" content="지원금 수령액 계산기 2026 | 복지모아">
+  <meta property="og:description" content="내 나이·가구·소득을 입력하면 받을 수 있는 정부 지원금과 예상 수령액을 바로 계산해드립니다.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://welfare.luckygrampus.com/calculator.html">
+  <meta property="og:image" content="https://welfare.luckygrampus.com/og-default.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="manifest" href="manifest.json">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8518556382646891" crossorigin="anonymous"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8L1DP9KW1N"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8L1DP9KW1N');</script>
+  <style>
+    .calc-wrap { max-width: 720px; margin: 0 auto; padding: 40px 20px 60px; }
+
+    /* 진행 표시 */
+    .step-progress { display: flex; align-items: center; margin-bottom: 36px; }
+    .step-dot {
+      width: 32px; height: 32px; border-radius: 50%;
+      background: var(--border); color: var(--text-sub);
+      font-size: 0.8rem; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; transition: background 0.2s, color 0.2s;
+    }
+    .step-dot.active { background: var(--primary); color: #fff; }
+    .step-dot.done { background: #22c55e; color: #fff; }
+    .step-line { flex: 1; height: 3px; background: var(--border); margin: 0 6px; transition: background 0.2s; }
+    .step-line.done { background: #22c55e; }
+    .step-label { font-size: 0.72rem; color: var(--text-sub); text-align: center; margin-top: 6px; }
+
+    /* 카드 */
+    .calc-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 16px; padding: 32px 28px;
+      box-shadow: 0 4px 20px rgba(26,111,196,0.08);
+    }
+    .calc-title { font-size: 1.25rem; font-weight: 800; color: var(--text); margin-bottom: 6px; }
+    .calc-sub { font-size: 0.9rem; color: var(--text-sub); margin-bottom: 28px; }
+
+    /* 선택 버튼 그룹 */
+    .choice-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; margin-bottom: 24px; }
+    .choice-btn {
+      padding: 16px 12px; border: 2px solid var(--border);
+      border-radius: 12px; background: var(--white);
+      cursor: pointer; text-align: center;
+      transition: border-color 0.15s, background 0.15s, transform 0.1s;
+      font-family: var(--font);
+    }
+    .choice-btn:hover { border-color: var(--primary); background: var(--primary-light); transform: translateY(-2px); }
+    .choice-btn.selected { border-color: var(--primary); background: var(--primary-light); }
+    .choice-btn .cb-icon { font-size: 1.8rem; margin-bottom: 6px; }
+    .choice-btn .cb-label { font-size: 0.88rem; font-weight: 700; color: var(--text); }
+    .choice-btn .cb-desc { font-size: 0.72rem; color: var(--text-sub); margin-top: 3px; }
+
+    /* 슬라이더 입력 */
+    .input-group { margin-bottom: 20px; }
+    .input-group label { display: block; font-size: 0.88rem; font-weight: 700; color: var(--text-sub); margin-bottom: 8px; }
+    .input-group input[type=range] {
+      width: 100%; accent-color: var(--primary);
+      height: 6px; cursor: pointer;
+    }
+    .range-val { font-size: 1.1rem; font-weight: 800; color: var(--primary); margin-top: 6px; }
+    .input-number-wrap { display: flex; align-items: center; gap: 12px; }
+    .input-number-wrap input[type=number] {
+      width: 100%; padding: 12px 14px; border: 1.5px solid var(--border);
+      border-radius: 10px; font-size: 1rem; font-family: var(--font);
+      color: var(--text); background: var(--bg); outline: none;
+      transition: border-color 0.15s;
+    }
+    .input-number-wrap input[type=number]:focus { border-color: var(--primary); background: var(--white); }
+    .input-unit { font-size: 0.9rem; color: var(--text-sub); white-space: nowrap; }
+
+    /* 네비 버튼 */
+    .calc-nav { display: flex; gap: 12px; margin-top: 28px; }
+    .btn-prev {
+      padding: 13px 24px; border: 2px solid var(--border);
+      border-radius: 10px; background: var(--white);
+      font-size: 0.95rem; font-weight: 700; cursor: pointer;
+      font-family: var(--font); color: var(--text-sub);
+      transition: border-color 0.15s;
+    }
+    .btn-prev:hover { border-color: var(--primary); color: var(--primary); }
+    .btn-next {
+      flex: 1; padding: 13px 24px;
+      background: var(--primary); color: #fff;
+      border: none; border-radius: 10px;
+      font-size: 1rem; font-weight: 800; cursor: pointer;
+      font-family: var(--font);
+      transition: background 0.15s, transform 0.1s;
+    }
+    .btn-next:hover { background: var(--primary-dark); transform: translateY(-1px); }
+    .btn-next:disabled { background: var(--border); cursor: not-allowed; transform: none; }
+
+    /* 결과 카드 */
+    .result-hero {
+      background: linear-gradient(135deg, var(--primary) 0%, #2d8cf0 100%);
+      color: #fff; border-radius: 16px; padding: 28px 24px; margin-bottom: 24px;
+      text-align: center;
+    }
+    .result-hero .rh-label { font-size: 0.9rem; opacity: 0.85; margin-bottom: 8px; }
+    .result-hero .rh-amount { font-size: 2.2rem; font-weight: 800; margin-bottom: 4px; }
+    .result-hero .rh-sub { font-size: 0.82rem; opacity: 0.75; }
+
+    .benefit-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
+    .benefit-item {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 12px; padding: 16px 18px;
+      display: flex; justify-content: space-between; align-items: center; gap: 16px;
+    }
+    .benefit-item.highlight { border-color: var(--primary); background: var(--primary-light); }
+    .bi-left { flex: 1; }
+    .bi-icon { font-size: 1.4rem; margin-bottom: 4px; }
+    .bi-name { font-size: 0.95rem; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+    .bi-desc { font-size: 0.78rem; color: var(--text-sub); }
+    .bi-amount {
+      text-align: right; flex-shrink: 0;
+    }
+    .bi-amount .amount-num { font-size: 1.05rem; font-weight: 800; color: var(--primary); display: block; }
+    .bi-amount .amount-period { font-size: 0.72rem; color: var(--text-sub); }
+    .bi-link {
+      display: inline-block; margin-top: 8px;
+      font-size: 0.78rem; color: var(--primary); font-weight: 700;
+      border: 1px solid var(--primary); padding: 3px 10px; border-radius: 20px;
+    }
+    .bi-link:hover { background: var(--primary); color: #fff; }
+
+    .result-disclaimer {
+      background: #fffbf0; border: 1px solid #f4e5b0;
+      border-radius: 10px; padding: 14px 16px;
+      font-size: 0.8rem; color: #7a6020; line-height: 1.6; margin-bottom: 20px;
+    }
+
+    .btn-restart {
+      width: 100%; padding: 14px;
+      background: var(--white); border: 2px solid var(--primary);
+      border-radius: 10px; color: var(--primary);
+      font-size: 0.95rem; font-weight: 800; cursor: pointer;
+      font-family: var(--font); transition: background 0.15s;
+      margin-bottom: 12px;
+    }
+    .btn-restart:hover { background: var(--primary-light); }
+
+    .btn-search-more {
+      display: block; width: 100%; padding: 14px;
+      background: var(--primary); color: #fff;
+      border: none; border-radius: 10px;
+      font-size: 0.95rem; font-weight: 800; cursor: pointer;
+      font-family: var(--font); text-align: center;
+      transition: background 0.15s;
+    }
+    .btn-search-more:hover { background: var(--primary-dark); }
+
+    /* 단계별 표시/숨김 */
+    .calc-step { display: none; }
+    .calc-step.active { display: block; }
+
+    @media (max-width: 600px) {
+      .calc-card { padding: 22px 16px; }
+      .choice-grid { grid-template-columns: 1fr 1fr; }
+      .result-hero .rh-amount { font-size: 1.7rem; }
+      .benefit-item { flex-direction: column; align-items: flex-start; }
+      .bi-amount { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo"><span class="logo-icon">🏛️</span><span>복지모아</span></a>
+    <nav class="site-nav">
+      <a href="/">홈</a>
+      <a href="search.html">지원금 검색</a>
+      <a href="calculator.html" class="active">수령액 계산</a>
+      <a href="/#categories">카테고리</a>
+    </nav>
+  </div>
+</header>
+
+<div style="text-align:center;padding:8px 0;background:#fff;border-bottom:1px solid #dde3ed;">
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8518556382646891" data-ad-slot="4593096138" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<div class="calc-wrap">
+
+  <h1 class="section-title" style="font-size:1.4rem;margin-bottom:4px;">지원금 수령액 계산기</h1>
+  <p style="font-size:0.88rem;color:var(--text-sub);margin-bottom:28px;">내 조건을 입력하면 받을 수 있는 지원금과 예상 금액을 계산해드립니다. (2026년 기준)</p>
+
+  <!-- 진행 표시 -->
+  <div class="step-progress" id="stepProgress">
+    <div style="text-align:center;">
+      <div class="step-dot active" id="dot1">1</div>
+      <div class="step-label">나이</div>
+    </div>
+    <div class="step-line" id="line1"></div>
+    <div style="text-align:center;">
+      <div class="step-dot" id="dot2">2</div>
+      <div class="step-label">가구</div>
+    </div>
+    <div class="step-line" id="line2"></div>
+    <div style="text-align:center;">
+      <div class="step-dot" id="dot3">3</div>
+      <div class="step-label">소득</div>
+    </div>
+    <div class="step-line" id="line3"></div>
+    <div style="text-align:center;">
+      <div class="step-dot" id="dot4">4</div>
+      <div class="step-label">결과</div>
+    </div>
+  </div>
+
+  <div class="calc-card">
+
+    <!-- STEP 1: 나이 -->
+    <div class="calc-step active" id="step1">
+      <div class="calc-title">나이를 선택해주세요</div>
+      <div class="calc-sub">만 나이 기준으로 가장 가까운 구간을 선택하세요.</div>
+      <div class="choice-grid">
+        <button class="choice-btn" data-val="teen" onclick="selectChoice(this, 'age')">
+          <div class="cb-icon">🎒</div>
+          <div class="cb-label">만 18세 이하</div>
+          <div class="cb-desc">청소년·아동</div>
+        </button>
+        <button class="choice-btn" data-val="youth" onclick="selectChoice(this, 'age')">
+          <div class="cb-icon">🎓</div>
+          <div class="cb-label">만 19~34세</div>
+          <div class="cb-desc">청년</div>
+        </button>
+        <button class="choice-btn" data-val="middle" onclick="selectChoice(this, 'age')">
+          <div class="cb-icon">💼</div>
+          <div class="cb-label">만 35~64세</div>
+          <div class="cb-desc">중장년</div>
+        </button>
+        <button class="choice-btn" data-val="senior" onclick="selectChoice(this, 'age')">
+          <div class="cb-icon">🌅</div>
+          <div class="cb-label">만 65세 이상</div>
+          <div class="cb-desc">노인</div>
+        </button>
+      </div>
+      <div class="calc-nav">
+        <button class="btn-next" id="next1" disabled onclick="goStep(2)">다음 →</button>
+      </div>
+    </div>
+
+    <!-- STEP 2: 가구 유형 -->
+    <div class="calc-step" id="step2">
+      <div class="calc-title">가구 유형을 선택해주세요</div>
+      <div class="calc-sub">현재 함께 사는 가구 형태를 선택하세요.</div>
+      <div class="choice-grid">
+        <button class="choice-btn" data-val="single" onclick="selectChoice(this, 'household')">
+          <div class="cb-icon">🙋</div>
+          <div class="cb-label">1인 가구</div>
+          <div class="cb-desc">혼자 거주</div>
+        </button>
+        <button class="choice-btn" data-val="couple" onclick="selectChoice(this, 'household')">
+          <div class="cb-icon">💑</div>
+          <div class="cb-label">부부 가구</div>
+          <div class="cb-desc">자녀 없음</div>
+        </button>
+        <button class="choice-btn" data-val="family" onclick="selectChoice(this, 'household')">
+          <div class="cb-icon">👨‍👩‍👧</div>
+          <div class="cb-label">자녀 있는 가족</div>
+          <div class="cb-desc">배우자+자녀</div>
+        </button>
+        <button class="choice-btn" data-val="single-parent" onclick="selectChoice(this, 'household')">
+          <div class="cb-icon">👩‍👦</div>
+          <div class="cb-label">한부모 가족</div>
+          <div class="cb-desc">혼자 자녀 양육</div>
+        </button>
+        <button class="choice-btn" data-val="disabled" onclick="selectChoice(this, 'household')">
+          <div class="cb-icon">♿</div>
+          <div class="cb-label">장애인 포함</div>
+          <div class="cb-desc">본인 또는 가족</div>
+        </button>
+      </div>
+
+      <!-- 자녀 수 (family/single-parent 선택 시 표시) -->
+      <div id="childrenInput" style="display:none;margin-bottom:16px;">
+        <div class="input-group">
+          <label>자녀 수</label>
+          <div class="input-number-wrap">
+            <input type="number" id="childrenCount" min="0" max="10" value="1" style="max-width:100px;">
+            <span class="input-unit">명</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="calc-nav">
+        <button class="btn-prev" onclick="goStep(1)">← 이전</button>
+        <button class="btn-next" id="next2" disabled onclick="goStep(3)">다음 →</button>
+      </div>
+    </div>
+
+    <!-- STEP 3: 소득 -->
+    <div class="calc-step" id="step3">
+      <div class="calc-title">월 소득을 입력해주세요</div>
+      <div class="calc-sub">세전 월 소득(급여·사업소득 등)을 입력하세요. 가구 전체 합산 금액입니다.</div>
+
+      <div class="input-group">
+        <label>월 소득 (가구 합산)</label>
+        <input type="range" id="incomeRange" min="0" max="700" step="10" value="200" oninput="updateIncomeDisplay()">
+        <div class="range-val" id="incomeDisplay">월 200만원</div>
+        <div style="display:flex;justify-content:space-between;font-size:0.75rem;color:var(--text-sub);margin-top:4px;">
+          <span>0원</span><span>350만원</span><span>700만원+</span>
+        </div>
+      </div>
+
+      <div class="input-group" style="margin-top:20px;">
+        <label>가구원 수</label>
+        <div class="input-number-wrap">
+          <input type="number" id="memberCount" min="1" max="10" value="1">
+          <span class="input-unit">명</span>
+        </div>
+      </div>
+
+      <div id="incomeGuide" style="background:var(--primary-light);border:1px solid #c5d9f0;border-radius:10px;padding:12px 14px;margin-top:12px;font-size:0.82rem;color:var(--primary);line-height:1.7;"></div>
+
+      <div class="calc-nav">
+        <button class="btn-prev" onclick="goStep(2)">← 이전</button>
+        <button class="btn-next" onclick="calculate(); goStep(4)">계산하기 ✨</button>
+      </div>
+    </div>
+
+    <!-- STEP 4: 결과 -->
+    <div class="calc-step" id="step4">
+      <div id="resultContent"></div>
+      <div class="result-disclaimer">
+        📌 이 계산기는 입력한 조건을 기반으로 수령 가능성이 높은 지원금을 안내합니다. 정확한 자격 여부와 수령액은 소득인정액 심사 등 추가 기준이 있으며, 실제 수령액은 다를 수 있습니다. 공식 신청 전 <a href="https://www.bokjiro.go.kr" target="_blank" rel="noopener noreferrer" style="color:var(--primary);">복지로</a>에서 반드시 확인하세요.
+      </div>
+      <button class="btn-restart" onclick="restart()">↩ 다시 계산하기</button>
+      <a href="search.html" class="btn-search-more">더 많은 지원금 검색하기 →</a>
+    </div>
+
+  </div>
+
+  <!-- 광고 -->
+  <div style="margin:32px 0;text-align:center;">
+    <ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-fb+5w+4e-db+86" data-ad-client="ca-pub-8518556382646891" data-ad-slot="4066635452"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+</div>
+
+<div class="banner-strip">
+  <h2>더 많은 지원금이 궁금하신가요?</h2>
+  <p>카테고리별 지원금 정보를 확인하세요.</p>
+  <a href="/" class="btn-primary">복지모아 홈으로 →</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">🏛️ 복지모아</div>
+      <p>정부 지원금·복지혜택 정보를<br>쉽고 빠르게 찾아드립니다.</p>
+    </div>
+    <div>
+      <div style="font-weight:700;color:#dde3ed;margin-bottom:10px;">카테고리</div>
+      <div class="footer-links">
+        <a href="search.html?cat=청년">청년 지원금</a>
+        <a href="search.html?cat=근로">근로·소득 지원</a>
+        <a href="search.html?cat=기초생활">기초생활수급</a>
+        <a href="search.html?cat=소상공인">소상공인 지원</a>
+      </div>
+    </div>
+    <div>
+      <div style="font-weight:700;color:#dde3ed;margin-bottom:10px;">바로가기</div>
+      <div class="footer-links">
+        <a href="calculator.html">수령액 계산기</a>
+        <a href="search.html">맞춤 지원금 검색</a>
+        <a href="https://www.bokjiro.go.kr" target="_blank" rel="noopener noreferrer">복지로</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 복지모아 · 본 사이트는 정보 제공 목적이며, 공식 지원금 신청은 각 부처 공식 사이트에서 하시기 바랍니다.</p>
+  </div>
+</footer>
+
+<button id="back-to-top" aria-label="맨 위로" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+// 2026 기준 중위소득 (1인~5인, 만원)
+const MEDIAN_INCOME = { 1: 239, 2: 393, 3: 505, 4: 614, 5: 719 };
+
+// 사용자 입력 상태
+const state = { age: null, household: null, children: 1, income: 200, members: 1 };
+
+function selectChoice(btn, key) {
+  const grid = btn.closest('.choice-grid');
+  grid.querySelectorAll('.choice-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  state[key] = btn.dataset.val;
+
+  // 자녀 수 입력 표시 조건
+  if (key === 'household') {
+    const show = (state.household === 'family' || state.household === 'single-parent');
+    document.getElementById('childrenInput').style.display = show ? '' : 'none';
+    document.getElementById('next2').disabled = false;
+  }
+  if (key === 'age') {
+    document.getElementById('next1').disabled = false;
+  }
+}
+
+function goStep(n) {
+  document.querySelectorAll('.calc-step').forEach(s => s.classList.remove('active'));
+  document.getElementById('step' + n).classList.add('active');
+  updateProgress(n);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function updateProgress(current) {
+  for (let i = 1; i <= 4; i++) {
+    const dot = document.getElementById('dot' + i);
+    dot.classList.remove('active', 'done');
+    if (i < current) dot.classList.add('done');
+    else if (i === current) dot.classList.add('active');
+  }
+  for (let i = 1; i <= 3; i++) {
+    const line = document.getElementById('line' + i);
+    line.classList.toggle('done', i < current);
+  }
+}
+
+function updateIncomeDisplay() {
+  const val = parseInt(document.getElementById('incomeRange').value);
+  state.income = val;
+  const members = parseInt(document.getElementById('memberCount').value) || 1;
+  state.members = members;
+  const display = val >= 700 ? '700만원 이상' : '월 ' + val + '만원';
+  document.getElementById('incomeDisplay').textContent = display;
+
+  // 중위소득 % 안내
+  const base = MEDIAN_INCOME[Math.min(members, 5)];
+  const pct = Math.round(val / base * 100);
+  const guide = document.getElementById('incomeGuide');
+  guide.innerHTML = '기준 중위소득 <strong>' + base + '만원</strong> 대비 약 <strong>' + pct + '%</strong> 수준입니다.';
+}
+
+// 지원금 DB
+const BENEFITS_DB = [
+  {
+    icon: '🏠', name: '청년 월세 지원금', url: 'posts/청년-월세-지원금-2026.html',
+    desc: '무주택 청년 월세 지원',
+    condition: s => s.age === 'youth' && s.income <= 120,
+    amountFn: s => ({ num: '월 최대 20만원', period: '최대 12개월', total: '최대 240만원' }),
+    highlight: true
+  },
+  {
+    icon: '💰', name: '청년도약계좌', url: 'posts/청년도약계좌-2026.html',
+    desc: '5년 만기 목돈 마련',
+    condition: s => s.age === 'youth' && s.income <= 600,
+    amountFn: s => ({ num: '정부기여금 최대 월 2.4만원', period: '5년', total: '만기 최대 5,000만원' }),
+    highlight: false
+  },
+  {
+    icon: '🏦', name: '청년내일저축계좌', url: 'posts/청년내일저축계좌-2026.html',
+    desc: '정부 3배 매칭 저축',
+    condition: s => s.age === 'youth' && s.income <= 250,
+    amountFn: s => ({ num: '월 최대 30만원 추가 적립', period: '3년', total: '최대 1,440만원' }),
+    highlight: true
+  },
+  {
+    icon: '💼', name: '근로장려금', url: 'posts/근로장려금-신청-2026.html',
+    desc: '저소득 근로·사업자 가구',
+    condition: s => s.income <= 380,
+    amountFn: s => {
+      if (s.household === 'single') return { num: '연 최대 165만원', period: '연 1회', total: '최대 165만원' };
+      if (s.household === 'single-parent' || s.household === 'family') return { num: '연 최대 285만원', period: '연 1회', total: '최대 285만원' };
+      return { num: '연 최대 235만원', period: '연 1회', total: '최대 235만원' };
+    },
+    highlight: true
+  },
+  {
+    icon: '👧', name: '자녀장려금', url: 'posts/자녀장려금-신청-2026.html',
+    desc: '18세 미만 자녀 보유 가구',
+    condition: s => (s.household === 'family' || s.household === 'single-parent') && s.income <= 400,
+    amountFn: s => {
+      const c = Math.max(1, state.children);
+      return { num: '자녀 1인당 최대 100만원', period: '연 1회', total: '최대 ' + (c * 100) + '만원' };
+    },
+    highlight: false
+  },
+  {
+    icon: '👶', name: '부모급여', url: 'posts/부모급여-신청-방법-2026.html',
+    desc: '만 0~1세 자녀 보유',
+    condition: s => (s.household === 'family' || s.household === 'single-parent'),
+    amountFn: s => ({ num: '만 0세 월 100만원 / 만 1세 월 50만원', period: '매월', total: '소득 무관 지급' }),
+    highlight: false
+  },
+  {
+    icon: '👦', name: '아동수당', url: 'posts/아동수당-신청-방법-2026.html',
+    desc: '만 8세 미만 아동 보유',
+    condition: s => (s.household === 'family' || s.household === 'single-parent'),
+    amountFn: s => ({ num: '월 10만원', period: '매월', total: '소득 무관 지급' }),
+    highlight: false
+  },
+  {
+    icon: '👨‍👧', name: '한부모가족 아동양육비', url: 'posts/한부모가족-지원금-2026.html',
+    desc: '한부모 자녀 양육 지원',
+    condition: s => s.household === 'single-parent' && s.income <= 200,
+    amountFn: s => ({ num: '월 21만원 (자녀 1인)', period: '매월', total: '자녀 수 × 21만원' }),
+    highlight: true
+  },
+  {
+    icon: '🏛️', name: '기초생활수급', url: 'posts/기초생활수급자-신청-2026.html',
+    desc: '생계·주거·의료·교육급여',
+    condition: s => {
+      const base = MEDIAN_INCOME[Math.min(s.members, 5)];
+      return s.income <= base * 0.32;
+    },
+    amountFn: s => {
+      const base = MEDIAN_INCOME[Math.min(s.members, 5)];
+      const livelihood = Math.round(base * 0.32 - s.income);
+      return { num: '생계급여 약 ' + livelihood + '만원', period: '매월', total: '주거·의료·교육급여 포함' };
+    },
+    highlight: true
+  },
+  {
+    icon: '🏠', name: '주거급여', url: 'posts/주거급여-신청-방법-2026.html',
+    desc: '임차료 실비 지원',
+    condition: s => {
+      const base = MEDIAN_INCOME[Math.min(s.members, 5)];
+      return s.income <= base * 0.48;
+    },
+    amountFn: s => ({ num: '서울 기준 최대 월 33만원', period: '매월', total: '지역·가구원 수에 따라 상이' }),
+    highlight: false
+  },
+  {
+    icon: '💡', name: '에너지바우처', url: 'posts/에너지바우처-2026.html',
+    desc: '냉·난방비 지원',
+    condition: s => {
+      const base = MEDIAN_INCOME[Math.min(s.members, 5)];
+      return s.income <= base * 0.40;
+    },
+    amountFn: s => {
+      if (s.members === 1) return { num: '연 최대 266,600원', period: '연 1회', total: '1인 기준' };
+      if (s.members === 2) return { num: '연 최대 369,300원', period: '연 1회', total: '2인 기준' };
+      return { num: '연 최대 592,300원', period: '연 1회', total: '3인 이상 기준' };
+    },
+    highlight: false
+  },
+  {
+    icon: '👴', name: '기초연금', url: 'posts/기초연금-신청-방법-2026.html',
+    desc: '만 65세 이상 소득 하위 70%',
+    condition: s => s.age === 'senior' && s.income <= 300,
+    amountFn: s => ({ num: '단독 최대 월 334,810원', period: '매월', total: '부부 최대 535,680원' }),
+    highlight: true
+  },
+  {
+    icon: '♿', name: '장애인연금', url: 'posts/장애인연금-신청-자격-2026.html',
+    desc: '중증장애인 소득 보전',
+    condition: s => s.household === 'disabled' && s.income <= 300,
+    amountFn: s => ({ num: '월 최대 40만원', period: '매월', total: '기초급여+부가급여' }),
+    highlight: true
+  },
+  {
+    icon: '♿', name: '장애인 활동지원', url: 'posts/장애인활동지원-신청-2026.html',
+    desc: '활동보조·방문목욕·방문간호',
+    condition: s => s.household === 'disabled',
+    amountFn: s => ({ num: '월 최대 700시간 바우처', period: '매월', total: '시간당 14,800원 기준' }),
+    highlight: false
+  },
+  {
+    icon: '🤝', name: '국민취업지원제도', url: 'posts/국민취업지원제도-2026.html',
+    desc: '구직촉진수당 지급',
+    condition: s => (s.age === 'youth' || s.age === 'middle') && s.income <= 250,
+    amountFn: s => ({ num: '월 50만원', period: '최대 6개월', total: '최대 300만원' }),
+    highlight: false
+  },
+  {
+    icon: '💊', name: '건강보험료 경감', url: 'posts/건강보험료-경감-신청-2026.html',
+    desc: '저소득 취약계층 감면',
+    condition: s => s.income <= 200,
+    amountFn: s => ({ num: '최대 80% 경감', period: '매월', total: '차상위·장애인·도서농어촌 대상' }),
+    highlight: false
+  },
+  {
+    icon: '🚌', name: 'K-패스 교통비 환급', url: 'posts/케이패스-신청-방법-2026.html',
+    desc: '대중교통 요금 환급',
+    condition: s => s.age === 'youth',
+    amountFn: s => ({ num: '청년 30% 환급', period: '매월', total: '월 15회 이상 이용 시' }),
+    highlight: false
+  },
+  {
+    icon: '🎓', name: '국가장학금', url: 'posts/국가장학금-신청-방법-2026.html',
+    desc: '대학 등록금 지원',
+    condition: s => s.age === 'youth' && s.income <= 500,
+    amountFn: s => {
+      if (s.income <= 100) return { num: '연 최대 700만원', period: '학기당', total: '소득 1구간' };
+      if (s.income <= 200) return { num: '연 최대 368만원', period: '학기당', total: '소득 3구간' };
+      return { num: '연 최대 67.5만원', period: '학기당', total: '소득 8구간' };
+    },
+    highlight: false
+  },
+  {
+    icon: '💑', name: '신혼부부 전세자금대출', url: 'posts/신혼부부-전세자금대출-2026.html',
+    desc: '혼인 7년 이내 저금리 대출',
+    condition: s => (s.household === 'couple' || s.household === 'family') && s.income <= 500,
+    amountFn: s => ({ num: '연 최저 1.2% 우대금리', period: '대출', total: '최대 3억원' }),
+    highlight: false
+  },
+  {
+    icon: '💼', name: '중장년 취업지원', url: 'posts/중장년-취업지원-2026.html',
+    desc: '만 40~64세 재취업 지원',
+    condition: s => s.age === 'middle',
+    amountFn: s => ({ num: '고용장려금 월 80만원', period: '최대 6개월', total: '최대 480만원' }),
+    highlight: false
+  },
+  {
+    icon: '📋', name: '실업급여', url: 'posts/실업급여-신청-방법-2026.html',
+    desc: '비자발적 실직 시 지급',
+    condition: s => s.income <= 400,
+    amountFn: s => ({ num: '이직 전 평균임금의 60%', period: '90~270일', total: '고용보험 가입 필수' }),
+    highlight: false
+  },
+  {
+    icon: '🏠', name: '차상위계층 혜택', url: 'posts/차상위계층-신청-방법-2026.html',
+    desc: '의료·교육·통신비 감면',
+    condition: s => {
+      const base = MEDIAN_INCOME[Math.min(s.members, 5)];
+      return s.income <= base * 0.50;
+    },
+    amountFn: s => ({ num: '통신비 감면 + 의료비 경감', period: '지속', total: '복합 혜택 패키지' }),
+    highlight: false
+  },
+];
+
+function calculate() {
+  state.income = parseInt(document.getElementById('incomeRange').value) || 0;
+  state.members = parseInt(document.getElementById('memberCount').value) || 1;
+  if (state.household === 'family' || state.household === 'single-parent') {
+    state.children = parseInt(document.getElementById('childrenCount').value) || 1;
+  }
+
+  const matched = BENEFITS_DB.filter(b => b.condition(state));
+
+  // 연간 최소 총 수령액 추정 (하이라이트 항목 기준)
+  let annualMin = 0;
+  matched.filter(b => b.highlight).forEach(b => {
+    const a = b.amountFn(state);
+    const m = a.total.match(/(\d[\d,]+)만원/);
+    if (m) annualMin += parseInt(m[1].replace(',', ''));
+  });
+
+  const container = document.getElementById('resultContent');
+  if (!matched.length) {
+    container.innerHTML = '<div style="text-align:center;padding:40px 0;"><div style="font-size:2.5rem;margin-bottom:12px;">🔍</div><p style="color:var(--text-sub);">조건에 맞는 지원금을 찾지 못했습니다.<br>조건을 다시 확인해보세요.</p></div>';
+    return;
+  }
+
+  let html = '';
+
+  // 요약 히어로
+  html += '<div class="result-hero">';
+  html += '<div class="rh-label">입력하신 조건으로 받을 수 있는 지원금</div>';
+  html += '<div class="rh-amount">' + matched.length + '개</div>';
+  if (annualMin > 0) {
+    html += '<div class="rh-sub">주요 지원금 합산 연간 최대 약 ' + annualMin + '만원 이상 가능</div>';
+  }
+  html += '</div>';
+
+  // 리스트
+  html += '<div class="benefit-list">';
+  const sorted = [...matched].sort((a, b) => (b.highlight ? 1 : 0) - (a.highlight ? 1 : 0));
+  sorted.forEach(b => {
+    const a = b.amountFn(state);
+    html += '<div class="benefit-item' + (b.highlight ? ' highlight' : '') + '">';
+    html += '<div class="bi-left">';
+    html += '<div class="bi-icon">' + b.icon + '</div>';
+    html += '<div class="bi-name">' + b.name + '</div>';
+    html += '<div class="bi-desc">' + b.desc + '</div>';
+    html += '<a href="' + b.url + '" class="bi-link">신청 방법 보기 →</a>';
+    html += '</div>';
+    html += '<div class="bi-amount">';
+    html += '<span class="amount-num">' + a.num + '</span>';
+    html += '<span class="amount-period">' + a.period + '</span>';
+    if (a.total) html += '<span class="amount-period" style="font-weight:700;color:var(--primary);display:block;margin-top:2px;">' + a.total + '</span>';
+    html += '</div>';
+    html += '</div>';
+  });
+  html += '</div>';
+
+  container.innerHTML = html;
+}
+
+function restart() {
+  state.age = null;
+  state.household = null;
+  state.income = 200;
+  state.members = 1;
+  document.querySelectorAll('.choice-btn').forEach(b => b.classList.remove('selected'));
+  document.getElementById('next1').disabled = true;
+  document.getElementById('next2').disabled = true;
+  document.getElementById('incomeRange').value = 200;
+  document.getElementById('memberCount').value = 1;
+  document.getElementById('childrenInput').style.display = 'none';
+  updateIncomeDisplay();
+  goStep(1);
+}
+
+// 초기화
+updateIncomeDisplay();
+
+// 소득 슬라이더와 가구원 수 연동
+document.getElementById('memberCount').addEventListener('input', updateIncomeDisplay);
+</script>
+
+<script>
+(function(){
+  var btn = document.getElementById('back-to-top');
+  window.addEventListener('scroll', function(){ btn.classList.toggle('visible', window.scrollY > 300); }, {passive: true});
+})();
+</script>
+
+</body>
+</html>
