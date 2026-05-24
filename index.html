@@ -636,7 +636,7 @@
       </div>
     </div>
   </div>
-  <div class="footer-bottom">
+  <div class="footer-footer-bottom">
     <p>© 2026 복지모아 · 본 사이트는 정보 제공 목적이며, 공식 지원금 신청은 각 부처 공식 사이트에서 하시기 바랍니다.</p>
   </div>
 </footer>
@@ -659,7 +659,7 @@
   deadlines.forEach(function(d) {
     var diff = Math.ceil((d.date - now) / (1000 * 60 * 60 * 24));
     var cls = diff <= 7 ? 'urgent' : diff <= 30 ? 'soon' : 'normal';
-    var label = diff <= 0 ? '마감' : diff === 0 ? 'D-day' : 'D-' + diff;
+    var label = diff < 0 ? '마감' : diff === 0 ? 'D-day' : 'D-' + diff;
     html += '<div class="deadline-item">';
     html += '<a href="' + d.url + '" class="dl-name" style="text-decoration:none;color:inherit;">' + d.name + '</a>';
     html += '<span class="dl-badge ' + cls + '">' + label + '</span>';
