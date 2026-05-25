@@ -709,4 +709,34 @@
     <priority>0.9</priority>
   </url>
 
+
+  <!-- 허브 페이지 (2026-05-25) -->
+  <url>
+    <loc>https://welfare.luckygrampus.com/%EC%B2%AD%EB%85%84-%EC%A7%80%EC%9B%90%EA%B8%88.html</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <url>
+    <loc>https://welfare.luckygrampus.com/%EB%85%B8%EC%9D%B8-%EB%B3%B5%EC%A7%80.html</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <url>
+    <loc>https://welfare.luckygrampus.com/%EC%9E%A5%EC%95%A0%EC%9D%B8-%EB%B3%B5%EC%A7%80.html</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <url>
+    <loc>https://welfare.luckygrampus.com/%EC%A7%80%EC%97%AD%EB%B3%84-%EB%B3%B5%EC%A7%80.html</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
 </urlset>
