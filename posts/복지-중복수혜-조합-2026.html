@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="naver-site-verification" content="7541a877bee52c44beb6410f16a62f585a44ad99" />
+  <link rel="manifest" href="../manifest.json">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#1a6fc4">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>복지 중복수혜 가능한 조합 총정리 2026 — 동시에 받을 수 있는 지원금 | 복지모아</title>
+  <meta name="description" content="2026년 동시에 받을 수 있는 복지 지원금 조합을 정리했습니다. 근로장려금+에너지바우처, 기초수급+의료급여 등 중복 수혜 가능한 조합과 불가능한 경우를 한눈에 확인하세요.">
+  <link rel="canonical" href="https://welfare.luckygrampus.com/posts/복지-중복수혜-조합-2026.html">
+  <meta property="og:title" content="복지 중복수혜 가능한 조합 총정리 2026 — 동시에 받을 수 있는 지원금">
+  <meta property="og:description" content="근로장려금+에너지바우처, 기초수급+의료급여 등 중복 수혜 가능한 복지 조합을 한눈에 확인하세요.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://welfare.luckygrampus.com/posts/복지-중복수혜-조합-2026.html">
+  <meta property="og:image" content="https://welfare.luckygrampus.com/og-default.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .post-wrap { max-width: 780px; margin: 0 auto; padding: 40px 20px; }
+    .post-header { margin-bottom: 28px; }
+    .post-label { font-size: 0.8rem; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; }
+    .post-h1 { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 800; line-height: 1.35; color: var(--text); margin-bottom: 14px; }
+    .post-summary { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 14px 18px; border-radius: 0 8px 8px 0; font-size: 0.95rem; color: var(--text); margin-bottom: 24px; line-height: 1.7; }
+    .post-summary strong { color: var(--primary); }
+    .post-body h2 { font-size: 1.2rem; font-weight: 800; margin: 32px 0 12px; padding-bottom: 8px; border-bottom: 2px solid var(--border); color: var(--text); }
+    .post-body h3 { font-size: 1rem; font-weight: 700; margin: 20px 0 8px; color: var(--text); }
+    .post-body p { font-size: 0.95rem; line-height: 1.8; color: #333; margin-bottom: 12px; }
+    .post-body ul, .post-body ol { padding-left: 22px; margin-bottom: 14px; }
+    .post-body li { font-size: 0.93rem; line-height: 1.8; color: #333; margin-bottom: 4px; }
+    .info-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.9rem; }
+    .info-table th { background: var(--primary); color: #fff; padding: 10px 14px; text-align: left; font-weight: 700; }
+    .info-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); }
+    .info-table tr:nth-child(even) td { background: var(--bg); }
+    .combo-card { border: 2px solid var(--border); border-radius: 14px; padding: 20px; margin-bottom: 16px; position: relative; }
+    .combo-card.possible { border-color: #22c55e; background: #f0fdf4; }
+    .combo-card.impossible { border-color: #ef4444; background: #fef2f2; }
+    .combo-badge { display: inline-block; font-size: 0.75rem; font-weight: 800; padding: 3px 10px; border-radius: 20px; margin-bottom: 10px; }
+    .combo-badge.ok { background: #22c55e; color: #fff; }
+    .combo-badge.no { background: #ef4444; color: #fff; }
+    .combo-title { font-size: 1rem; font-weight: 800; color: var(--text); margin-bottom: 8px; }
+    .combo-amount { font-size: 0.88rem; font-weight: 700; color: var(--primary); margin-bottom: 6px; }
+    .combo-note { font-size: 0.82rem; color: var(--text-sub); line-height: 1.6; }
+    .highlight-box { background: #fff8e1; border: 1px solid #f4c842; border-radius: 10px; padding: 14px 18px; margin: 16px 0; font-size: 0.9rem; line-height: 1.7; }
+    .highlight-box strong { color: #c87820; }
+    .faq-item { border: 1px solid var(--border); border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
+    .faq-q { padding: 14px 18px; font-weight: 700; font-size: 0.93rem; cursor: pointer; background: var(--bg); display: flex; justify-content: space-between; align-items: center; border: none; width: 100%; text-align: left; font-family: var(--font); color: var(--text); }
+    .faq-a { padding: 12px 18px; font-size: 0.9rem; line-height: 1.7; color: var(--text-sub); display: none; border-top: 1px solid var(--border); }
+    .faq-item.open .faq-a { display: block; }
+    .faq-item.open .faq-q { background: var(--primary-light); color: var(--primary); }
+    .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .related-card { border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; transition: border-color 0.15s; text-decoration: none; display: block; }
+    .related-card:hover { border-color: var(--primary); }
+    .related-card .rc-icon { font-size: 1.5rem; margin-bottom: 6px; }
+    .related-card .rc-title { font-size: 0.88rem; font-weight: 700; color: var(--text); line-height: 1.4; }
+    @media (max-width: 600px) { .related-grid { grid-template-columns: 1fr; } }
+  </style>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8518556382646891" crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "복지 중복수혜 가능한 조합 총정리 2026 — 동시에 받을 수 있는 지원금",
+    "description": "2026년 동시에 받을 수 있는 복지 지원금 조합을 정리했습니다. 근로장려금+에너지바우처 등 중복 수혜 가능한 조합을 한눈에 확인하세요.",
+    "url": "https://welfare.luckygrampus.com/posts/복지-중복수혜-조합-2026.html",
+    "datePublished": "2026-05-25",
+    "dateModified": "2026-05-25",
+    "inLanguage": "ko-KR",
+    "author": {"@type": "Organization", "name": "복지모아", "url": "https://welfare.luckygrampus.com"},
+    "publisher": {"@type": "Organization", "name": "복지모아", "url": "https://welfare.luckygrampus.com"},
+    "image": "https://welfare.luckygrampus.com/og-default.png"
+  }
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8L1DP9KW1N"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8L1DP9KW1N');</script>
+  <script src="../js/ga-events.js" defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type":"ListItem","position":1,"name":"복지모아","item":"https://welfare.luckygrampus.com/"},
+      {"@type":"ListItem","position":2,"name":"복지 활용 가이드","item":"https://welfare.luckygrampus.com/search.html"},
+      {"@type":"ListItem","position":3,"name":"복지 중복수혜 가능한 조합 총정리 2026","item":"https://welfare.luckygrampus.com/posts/복지-중복수혜-조합-2026.html"}
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo"><span class="logo-icon">🏛️</span><span>복지모아</span></a>
+    <nav class="site-nav">
+      <a href="/">홈</a>
+      <a href="../search.html">지원금 검색</a>
+      <a href="../calculator.html">수령액 계산</a>
+      <a href="/#categories">카테고리</a>
+    </nav>
+  </div>
+</header>
+
+<div style="text-align:center;padding:8px 0;background:#fff;border-bottom:1px solid #dde3ed;">
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8518556382646891" data-ad-slot="4593096138" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<div class="post-wrap">
+
+  <div class="post-header">
+    <div class="post-label">복지 활용 가이드 · 중복수혜</div>
+    <h1 class="post-h1">복지 중복수혜 가능한 조합 총정리 2026<br>— 동시에 받을 수 있는 지원금 한눈에</h1>
+    <div class="post-summary">
+      <strong>핵심 요약:</strong> 대부분의 정부 지원금은 <strong>중복 수혜가 가능</strong>합니다. 기초생활수급자라면 에너지바우처·문화누리카드·의료급여를 동시에 받을 수 있고, 근로장려금 수급자도 자녀장려금·건강보험료 경감을 함께 신청할 수 있습니다. 단, 동일 목적의 유사 급여는 중복 불가 원칙이 적용됩니다. ※ 정확한 중복 가능 여부는 주민센터 또는 복지로에서 확인하세요.
+    </div>
+  </div>
+
+  <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-8518556382646891" data-ad-slot="5445109426"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+  <div class="post-body">
+
+    <h2>중복수혜의 기본 원칙</h2>
+    <p>한국 복지제도는 <strong>"목적이 다르면 중복 수혜 가능"</strong>이 원칙입니다. 생계비를 지원하는 급여와 교통비를 지원하는 급여는 서로 다른 목적이므로 동시 수령이 가능합니다. 단, 동일한 목적의 유사 사업(예: 서울시 청년월세와 국토부 청년월세)은 중복 신청이 제한될 수 있습니다.</p>
+
+    <div class="highlight-box">
+      <strong>💡 중복수혜 핵심 원칙:</strong> ① 목적이 다른 급여 → 대부분 중복 가능 ② 동일 목적 유사 사업 → 중복 불가 ③ 소득 기준이 달라 하나는 되고 하나는 안 될 수 있음 → 각 급여별 기준 별도 확인 필수
+    </div>
+
+    <h2>중복수혜 가능한 조합 (확인된 사례)</h2>
+
+    <div class="combo-card possible">
+      <span class="combo-badge ok">✅ 중복 가능</span>
+      <div class="combo-title">근로장려금 + 자녀장려금</div>
+      <div class="combo-amount">연 최대 165만원 + 자녀 1인당 최대 100만원</div>
+      <div class="combo-note">18세 미만 자녀를 둔 저소득 근로·사업자 가구라면 두 가지를 동시에 신청할 수 있습니다. 홈택스에서 함께 신청 가능하며, 같은 신청 기간(5월)에 처리됩니다.</div>
+    </div>
+
+    <div class="combo-card possible">
+      <span class="combo-badge ok">✅ 중복 가능</span>
+      <div class="combo-title">기초생활수급 4종 급여 동시 수령</div>
+      <div class="combo-amount">생계급여 + 의료급여 + 주거급여 + 교육급여</div>
+      <div class="combo-note">기초생활보장제도의 4가지 급여는 각각 소득 기준이 다르므로 조건을 충족하는 급여를 복수로 받을 수 있습니다. 주민센터에서 통합 신청하면 해당 급여를 한번에 결정해 줍니다.</div>
+    </div>
+
+    <div class="combo-card possible">
+      <span class="combo-badge ok">✅ 중복 가능</span>
+      <div class="combo-title">기초생활수급 + 에너지바우처 + 문화누리카드</div>
+      <div class="combo-amount">생계급여 + 연 최대 59만원(에너지) + 연 13만원(문화)</div>
+      <div class="combo-note">기초생활수급자는 에너지바우처(냉난방비)와 문화누리카드(여가·문화비) 모두 자동 또는 별도 신청으로 받을 수 있습니다. 목적이 완전히 다르기 때문에 중복 가능합니다.</div>
+    </div>
+
+    <div class="combo-card possible">
+      <span class="combo-badge ok">✅ 중복 가능</span>
+      <div class="combo-title">근로장려금 + 에너지바우처 + 건강보험료 경감</div>
+      <div class="combo-amount">연 최대 165만원 + 냉난방비 지원 + 건보료 최대 80% 경감</div>
+      <div class="combo-note">근로장려금은 소득 지원, 에너지바우처는 에너지비 지원, 건강보험료 경감은 의료비 부담 완화로 목적이 각각 다릅니다. 소득 기준을 충족하면 세 가지 동시 수혜 가능합니다.</div>
+    </div>
+
+    <div class="combo-card possible">
+      <span class="combo-badge ok">✅ 중복 가능</span>
+      <div class="combo-title">청년 월세 지원금 + 청년도약계좌 + K-패스</div>
+      <div class="combo-amount">월 최대 20만원(월세) + 정부기여금(저축) + 교통비 30% 환급</div>
+      <div class="combo-note">월세 지원(주거), 청년도약계좌(자산 형성), K-패스(교통비)는 완전히 다른 목적의 지원입니다. 소득 조건이 맞는다면 세 가지를 동시에 활용할 수 있습니다.</div>
+    </div>
+
+    <div class="combo-card possible">
+      <span class="combo-badge ok">✅ 중복 가능</span>
+      <div class="combo-title">한부모가족 아동양육비 + 아동수당 + 부모급여</div>
+      <div class="combo-amount">월 21만원(양육비) + 월 10만원(아동수당) + 월 50~100만원(부모급여)</div>
+      <div class="combo-note">아동수당과 부모급여는 소득 무관 보편 지급이며, 한부모가족 아동양육비는 소득 기준을 충족하면 별도로 받을 수 있습니다. 모두 목적이 다르므로 중복 가능합니다.</div>
+    </div>
+
+    <div class="combo-card possible">
+      <span class="combo-badge ok">✅ 중복 가능</span>
+      <div class="combo-title">기초연금 + 장기요양보험 + 노인 일자리</div>
+      <div class="combo-amount">월 최대 34만원(기초연금) + 서비스비용 지원 + 월 최대 59만원(일자리)</div>
+      <div class="combo-note">만 65세 이상 저소득 어르신이라면 기초연금을 받으면서 장기요양서비스를 이용하고, 건강이 허락한다면 노인 일자리 사업에도 참여할 수 있습니다.</div>
+    </div>
+
+    <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-8518556382646891" data-ad-slot="5445109426"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+    <h2>중복수혜 불가능한 경우 (주의)</h2>
+
+    <div class="combo-card impossible">
+      <span class="combo-badge no">❌ 중복 불가</span>
+      <div class="combo-title">국토부 청년월세 + 지자체 청년월세 (동일 목적 사업)</div>
+      <div class="combo-note">서울시 청년월세지원과 국토교통부 청년월세한시특별지원은 둘 다 월세를 지원하는 동일 목적 사업입니다. 두 사업을 동시에 받을 수 없으며, 하나를 선택해야 합니다.</div>
+    </div>
+
+    <div class="combo-card impossible">
+      <span class="combo-badge no">❌ 중복 불가</span>
+      <div class="combo-title">기초생활수급(생계급여) + 긴급복지지원(생계지원)</div>
+      <div class="combo-note">이미 기초생활수급자로 생계급여를 받고 있다면, 동일한 생계 지원 목적의 긴급복지지원 생계지원은 원칙적으로 중복 지급되지 않습니다. 단, 의료지원 등 다른 항목은 가능할 수 있습니다.</div>
+    </div>
+
+    <div class="combo-card impossible">
+      <span class="combo-badge no">❌ 중복 불가</span>
+      <div class="combo-title">청년내일저축계좌 + 희망두배청년통장 (동시 가입)</div>
+      <div class="combo-note">유사한 목적의 자산형성 지원 통장은 동시 가입이 제한될 수 있습니다. 청년내일저축계좌와 희망두배청년통장은 각각 자격 기준도 다르므로, 신청 전 지자체에 중복 가입 가능 여부를 확인하세요.</div>
+    </div>
+
+    <h2>가구 유형별 최적 조합 예시</h2>
+
+    <table class="info-table">
+      <tr><th>가구 유형</th><th>추천 수혜 조합</th><th>연간 예상 수혜액</th></tr>
+      <tr>
+        <td>저소득 청년 1인</td>
+        <td>근로장려금 + 청년월세 + K-패스 + 에너지바우처 + 건보료 경감</td>
+        <td>연 400만원 이상</td>
+      </tr>
+      <tr>
+        <td>저소득 한부모가족</td>
+        <td>기초수급 + 아동양육비 + 아동수당 + 에너지바우처 + 문화누리카드</td>
+        <td>연 600만원 이상</td>
+      </tr>
+      <tr>
+        <td>맞벌이 가정 (자녀 있음)</td>
+        <td>근로장려금 + 자녀장려금 + 아동수당 + 청년도약계좌 + K-패스</td>
+        <td>연 500만원 이상</td>
+      </tr>
+      <tr>
+        <td>노인 단독 가구</td>
+        <td>기초연금 + 에너지바우처 + 문화누리카드 + 건보료 경감 + 노인일자리</td>
+        <td>연 700만원 이상</td>
+      </tr>
+      <tr>
+        <td>기초생활수급 가구</td>
+        <td>생계+의료+주거+교육급여 + 에너지바우처 + 문화누리카드 + 평생교육바우처</td>
+        <td>개별 산정 필요</td>
+      </tr>
+    </table>
+
+    <div class="highlight-box">
+      <strong>💡 꼭 확인할 것:</strong> 위 조합과 금액은 2026년 기준 참고용입니다. 실제 수령액은 소득인정액, 가구원 수, 지역에 따라 달라집니다. 복지로 모의계산이나 주민센터 상담을 통해 내 상황에 맞는 조합을 확인하세요.
+    </div>
+
+    <h2>자주 묻는 질문 (FAQ)</h2>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Q. 복지 급여를 여러 개 받으면 소득으로 잡혀서 탈락하나요? <span>▼</span></button>
+      <div class="faq-a">A. 급여의 종류에 따라 다릅니다. 기초생활 급여(생계·주거·의료·교육)는 소득인정액 산정 시 일정 부분만 반영되며, 근로장려금은 원칙적으로 소득인정액에 포함되지 않습니다. 다만 각 급여별 세부 기준이 다르므로 주민센터에서 확인하세요.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Q. 내가 받을 수 있는 지원금 조합을 한 번에 확인하는 방법이 있나요? <span>▼</span></button>
+      <div class="faq-a">A. 복지로(bokjiro.go.kr)의 '복지멤버십' 또는 '복지서비스 모의계산' 기능을 이용하면 소득·가구 정보를 입력해 수급 가능한 급여를 한번에 확인할 수 있습니다. 또한 복지모아의 수령액 계산기도 활용해보세요.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Q. 중복 신청이 가능한 경우, 각각 따로 신청해야 하나요? <span>▼</span></button>
+      <div class="faq-a">A. 기초생활수급은 통합 신청으로 4종 급여를 한 번에 처리하지만, 에너지바우처·문화누리카드·근로장려금 등은 각각 별도로 신청해야 합니다. 신청 기간도 다르므로 놓치지 않도록 주의하세요.</div>
+    </div>
+
+    <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-8518556382646891" data-ad-slot="5445109426"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+    <h2>함께 보면 좋은 지원금</h2>
+    <div class="related-grid">
+      <a href="근로장려금-신청-2026.html" class="related-card">
+        <div class="rc-icon">💼</div>
+        <div class="rc-title">근로장려금 — 단독가구 최대 165만원</div>
+      </a>
+      <a href="기초생활수급자-신청-2026.html" class="related-card">
+        <div class="rc-icon">🏛️</div>
+        <div class="rc-title">기초생활수급자 신청 방법 2026</div>
+      </a>
+      <a href="에너지바우처-2026.html" class="related-card">
+        <div class="rc-icon">💡</div>
+        <div class="rc-title">에너지바우처 — 냉·난방비 최대 59만원</div>
+      </a>
+      <a href="../calculator.html" class="related-card">
+        <div class="rc-icon">🧮</div>
+        <div class="rc-title">내 수령액 계산기 — 조건별 맞춤 계산</div>
+      </a>
+    </div>
+
+  </div>
+
+  <div style="margin-top:36px;padding-top:24px;border-top:1px solid var(--border);font-size:0.82rem;color:#aaa;">
+    ※ 본 정보는 참고용입니다. 정확한 중복수혜 가능 여부·금액·신청 기간은 <a href="https://www.bokjiro.go.kr" target="_blank" rel="noopener noreferrer" style="color:var(--primary);">복지로 공식 사이트</a> 또는 주민센터에서 반드시 확인하시기 바랍니다.
+  </div>
+
+</div>
+
+<div class="banner-strip">
+  <h2>내 조건에 맞는 지원금 조합을 계산해보세요</h2>
+  <p>나이·가구유형·소득을 입력하면 받을 수 있는 지원금 목록을 바로 확인할 수 있습니다.</p>
+  <a href="../calculator.html" class="btn-primary">수령액 계산하기 →</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">🏛️ 복지모아</div>
+      <p>정부 지원금·복지혜택 정보를<br>쉽고 빠르게 찾아드립니다.</p>
+    </div>
+    <div>
+      <div style="font-weight:700;color:#dde3ed;margin-bottom:10px;">카테고리</div>
+      <div class="footer-links">
+        <a href="../search.html?cat=청년">청년 지원금</a>
+        <a href="../search.html?cat=근로">근로·소득 지원</a>
+        <a href="../search.html?cat=기초생활">기초생활수급</a>
+        <a href="../search.html?cat=소상공인">소상공인 지원</a>
+      </div>
+    </div>
+    <div>
+      <div style="font-weight:700;color:#dde3ed;margin-bottom:10px;">바로가기</div>
+      <div class="footer-links">
+        <a href="../index.html">복지모아 홈</a>
+        <a href="https://www.bokjiro.go.kr" target="_blank" rel="noopener noreferrer">복지로</a>
+        <a href="https://www.gov.kr" target="_blank" rel="noopener noreferrer">정부24</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 복지모아 · 본 사이트는 정보 제공 목적이며, 공식 지원금 신청은 각 부처 공식 사이트에서 하시기 바랍니다.</p>
+  </div>
+</footer>
+
+<script>
+function toggleFaq(btn) {
+  var item = btn.closest('.faq-item');
+  item.classList.toggle('open');
+  btn.setAttribute('aria-expanded', item.classList.contains('open'));
+}
+</script>
+<button id="back-to-top" aria-label="맨 위로" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>(function(){var btn=document.getElementById('back-to-top');window.addEventListener('scroll',function(){btn.classList.toggle('visible',window.scrollY>300);},{passive:true});})();</script>
+</body>
+</html>

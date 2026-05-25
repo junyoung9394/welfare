@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="naver-site-verification" content="7541a877bee52c44beb6410f16a62f585a44ad99" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#1a6fc4">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026 복지 지원금 신청 기간 캘린더 — 월별 신청 마감 총정리 | 복지모아</title>
+  <meta name="description" content="2026년 주요 복지 지원금의 신청 기간과 마감일을 월별로 정리했습니다. 근로장려금, 에너지바우처, 국가장학금, 청년도약계좌 등 놓치기 쉬운 신청 기간을 한눈에 확인하세요.">
+  <link rel="canonical" href="https://welfare.luckygrampus.com/welfare-calendar.html">
+  <meta property="og:title" content="2026 복지 지원금 신청 기간 캘린더 — 월별 신청 마감 총정리">
+  <meta property="og:description" content="근로장려금, 에너지바우처, 국가장학금 등 2026년 복지 지원금 신청 기간 월별 캘린더.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://welfare.luckygrampus.com/welfare-calendar.html">
+  <meta property="og:image" content="https://welfare.luckygrampus.com/og-default.png">
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8518556382646891" crossorigin="anonymous"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8L1DP9KW1N"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8L1DP9KW1N');</script>
+  <script src="js/ga-events.js" defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "2026 복지 지원금 신청 기간 캘린더",
+    "description": "2026년 주요 복지 지원금의 신청 기간과 마감일을 월별로 정리했습니다.",
+    "url": "https://welfare.luckygrampus.com/welfare-calendar.html",
+    "inLanguage": "ko-KR",
+    "publisher": {"@type": "Organization", "name": "복지모아", "url": "https://welfare.luckygrampus.com"}
+  }
+  </script>
+  <style>
+    .cal-wrap { max-width: 860px; margin: 0 auto; padding: 40px 20px 60px; }
+    .cal-hero { text-align: center; margin-bottom: 36px; }
+    .cal-hero h1 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; color: var(--text); margin-bottom: 8px; }
+    .cal-hero p { font-size: 0.95rem; color: var(--text-sub); line-height: 1.7; }
+
+    /* 필터 탭 */
+    .filter-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; justify-content: center; }
+    .filter-tab { padding: 7px 16px; border: 1.5px solid var(--border); border-radius: 20px; font-size: 0.85rem; font-weight: 600; cursor: pointer; background: var(--white); color: var(--text-sub); font-family: var(--font); transition: all 0.15s; }
+    .filter-tab:hover, .filter-tab.active { border-color: var(--primary); background: var(--primary); color: #fff; }
+
+    /* 월 섹션 */
+    .month-section { margin-bottom: 32px; }
+    .month-header { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+    .month-label { font-size: 1.1rem; font-weight: 800; color: var(--text); }
+    .month-badge { font-size: 0.75rem; padding: 3px 10px; border-radius: 20px; font-weight: 700; }
+    .month-badge.current { background: #fef3c7; color: #d97706; }
+    .month-badge.upcoming { background: var(--primary-light); color: var(--primary); }
+    .month-badge.past { background: var(--bg); color: #aaa; }
+
+    /* 이벤트 카드 */
+    .event-list { display: flex; flex-direction: column; gap: 8px; }
+    .event-card { display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; background: var(--white); border: 1px solid var(--border); border-radius: 12px; text-decoration: none; transition: border-color 0.15s, transform 0.1s; }
+    .event-card:hover { border-color: var(--primary); transform: translateX(3px); }
+    .event-card.urgent { border-left: 4px solid #ef4444; }
+    .event-card.soon { border-left: 4px solid #f59e0b; }
+    .event-card.normal { border-left: 4px solid #22c55e; }
+    .event-card.past { border-left: 4px solid #d1d5db; opacity: 0.6; }
+    .event-date-col { min-width: 68px; flex-shrink: 0; }
+    .event-period { font-size: 0.72rem; color: var(--text-sub); line-height: 1.4; }
+    .event-dday { font-size: 0.78rem; font-weight: 800; margin-top: 3px; }
+    .event-dday.urgent { color: #ef4444; }
+    .event-dday.soon { color: #f59e0b; }
+    .event-dday.normal { color: #22c55e; }
+    .event-dday.past { color: #9ca3af; }
+    .event-info { flex: 1; }
+    .event-name { font-size: 0.93rem; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+    .event-desc { font-size: 0.8rem; color: var(--text-sub); line-height: 1.5; }
+    .event-cat { display: inline-block; font-size: 0.7rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin-top: 4px; }
+    .cat-youth { background: #dbeafe; color: #1d4ed8; }
+    .cat-basic { background: #dcfce7; color: #15803d; }
+    .cat-labor { background: #fef3c7; color: #92400e; }
+    .cat-senior { background: #f3e8ff; color: #7c3aed; }
+    .cat-child { background: #fce7f3; color: #be185d; }
+    .cat-edu { background: #e0f2fe; color: #0369a1; }
+    .cat-energy { background: #fff7ed; color: #c2410c; }
+
+    /* 요약 박스 */
+    .summary-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; margin-bottom: 32px; }
+    .summary-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 16px; text-align: center; }
+    .summary-num { font-size: 2rem; font-weight: 800; color: var(--primary); }
+    .summary-label { font-size: 0.78rem; color: var(--text-sub); margin-top: 4px; }
+    .summary-card.red .summary-num { color: #ef4444; }
+    .summary-card.orange .summary-num { color: #f59e0b; }
+
+    @media (max-width: 600px) {
+      .event-card { flex-direction: column; gap: 8px; }
+      .event-date-col { display: flex; gap: 12px; align-items: center; }
+      .summary-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo"><span class="logo-icon">🏛️</span><span>복지모아</span></a>
+    <nav class="site-nav">
+      <a href="/">홈</a>
+      <a href="search.html">지원금 검색</a>
+      <a href="calculator.html">수령액 계산</a>
+      <a href="welfare-calendar.html" class="active">신청 캘린더</a>
+    </nav>
+  </div>
+</header>
+
+<div style="text-align:center;padding:8px 0;background:#fff;border-bottom:1px solid #dde3ed;">
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8518556382646891" data-ad-slot="4593096138" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<div class="cal-wrap">
+
+  <div class="cal-hero">
+    <h1>📅 2026 복지 지원금 신청 캘린더</h1>
+    <p>놓치면 1년을 기다려야 하는 지원금 신청 기간을<br>월별로 한눈에 확인하세요.</p>
+  </div>
+
+  <!-- 현황 요약 -->
+  <div class="summary-grid" id="summaryGrid"></div>
+
+  <!-- 필터 탭 -->
+  <div class="filter-tabs">
+    <button class="filter-tab active" onclick="filterEvents('all', this)">전체</button>
+    <button class="filter-tab" onclick="filterEvents('youth', this)">청년</button>
+    <button class="filter-tab" onclick="filterEvents('basic', this)">기초생활</button>
+    <button class="filter-tab" onclick="filterEvents('labor', this)">근로·소득</button>
+    <button class="filter-tab" onclick="filterEvents('senior', this)">노인</button>
+    <button class="filter-tab" onclick="filterEvents('child', this)">아동·출산</button>
+    <button class="filter-tab" onclick="filterEvents('edu', this)">교육</button>
+    <button class="filter-tab" onclick="filterEvents('energy', this)">에너지</button>
+  </div>
+
+  <!-- 광고 -->
+  <div style="text-align:center;margin-bottom:24px;">
+    <ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-fb+5w+4e-db+86" data-ad-client="ca-pub-8518556382646891" data-ad-slot="4066635452"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <!-- 월별 이벤트 -->
+  <div id="calendarBody"></div>
+
+  <!-- 하단 광고 -->
+  <div style="text-align:center;margin:32px 0;">
+    <ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-fb+5w+4e-db+86" data-ad-client="ca-pub-8518556382646891" data-ad-slot="4066635452"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <div style="background:var(--primary-light);border:1px solid #c5d9f0;border-radius:12px;padding:16px 20px;font-size:0.85rem;color:var(--primary);line-height:1.7;">
+    📌 위 신청 기간은 2026년 기준 예정 일정이며, 정부 정책·예산에 따라 변경될 수 있습니다. 정확한 신청 기간은 각 사업 공고 또는 <a href="https://www.bokjiro.go.kr" target="_blank" rel="noopener noreferrer" style="font-weight:700;">복지로</a>에서 반드시 확인하세요.
+  </div>
+
+</div>
+
+<div class="banner-strip">
+  <h2>내가 받을 수 있는 지원금, 지금 계산해보세요</h2>
+  <p>조건을 입력하면 수령 가능한 지원금과 예상 금액을 바로 확인할 수 있습니다.</p>
+  <a href="calculator.html" class="btn-primary">수령액 계산하기 →</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">🏛️ 복지모아</div>
+      <p>정부 지원금·복지혜택 정보를<br>쉽고 빠르게 찾아드립니다.</p>
+    </div>
+    <div>
+      <div style="font-weight:700;color:#dde3ed;margin-bottom:10px;">카테고리</div>
+      <div class="footer-links">
+        <a href="search.html?cat=청년">청년 지원금</a>
+        <a href="search.html?cat=근로">근로·소득 지원</a>
+        <a href="search.html?cat=기초생활">기초생활수급</a>
+        <a href="search.html?cat=소상공인">소상공인 지원</a>
+      </div>
+    </div>
+    <div>
+      <div style="font-weight:700;color:#dde3ed;margin-bottom:10px;">바로가기</div>
+      <div class="footer-links">
+        <a href="calculator.html">수령액 계산기</a>
+        <a href="welfare-calendar.html">신청 캘린더</a>
+        <a href="https://www.bokjiro.go.kr" target="_blank" rel="noopener noreferrer">복지로</a>
+        <a href="https://www.gov.kr" target="_blank" rel="noopener noreferrer">정부24</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 복지모아 · 본 사이트는 정보 제공 목적이며, 공식 지원금 신청은 각 부처 공식 사이트에서 하시기 바랍니다.</p>
+  </div>
+</footer>
+
+<button id="back-to-top" aria-label="맨 위로" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>(function(){var btn=document.getElementById('back-to-top');window.addEventListener('scroll',function(){btn.classList.toggle('visible',window.scrollY>300);},{passive:true});})();</script>
+
+<script>
+// 지원금 캘린더 데이터
+const EVENTS = [
+  // 1월
+  { name: '2026년 기준 중위소득 변경 적용', period: '1월 1일~', end: '2026-01-31', cat: 'basic', url: 'posts/기초생활수급자-신청-2026.html', desc: '매년 1월 새 기준 중위소득 적용 — 기초수급·차상위 재산정' },
+  { name: '국가장학금 1학기 신청', period: '1월초~2월중순', end: '2026-02-20', cat: 'edu', url: 'posts/국가장학금-신청-방법-2026.html', desc: '1학기 등록금 지원 — 소득 8구간 이하 대학생 신청 필수' },
+  // 2월
+  { name: '청년도약계좌 신규 신청', period: '2월~(월별)', end: '2026-12-31', cat: 'youth', url: 'posts/청년도약계좌-2026.html', desc: '매달 신청 가능, 소득 기준 충족 시 정부기여금 지급' },
+  // 3월
+  { name: '청년내일저축계좌 신규 모집', period: '3월~4월', end: '2026-04-30', cat: 'youth', url: 'posts/청년내일저축계좌-2026.html', desc: '저소득 청년 월 저축 시 정부 3배 매칭 — 연 1회 모집' },
+  { name: '평생교육바우처 신청', period: '3월~(선착순)', end: '2026-12-31', cat: 'edu', url: 'posts/평생교육바우처-2026.html', desc: '연 35만원 교육비 — 기초수급·차상위·중위소득 65% 이하 성인' },
+  // 4월
+  { name: '노인 일자리 사업 참여자 모집', period: '4월~5월', end: '2026-05-31', cat: 'senior', url: 'posts/노인-일자리-지원-2026.html', desc: '만 65세 이상 기초연금 수급자 대상 — 선착순 마감 주의' },
+  { name: '문화누리카드 신청', period: '2월~(연중)', end: '2026-11-30', cat: 'basic', url: 'posts/문화누리카드-2026.html', desc: '기초수급·차상위 대상 연 13만원 — 예산 소진 시 조기 마감' },
+  // 5월
+  { name: '근로장려금 정기 신청', period: '5월 1일~5월 31일', end: '2026-05-31', cat: 'labor', url: 'posts/근로장려금-신청-2026.html', desc: '연 1회 홈택스 신청 — 9월 지급. 단독 최대 165만원' },
+  { name: '자녀장려금 정기 신청', period: '5월 1일~5월 31일', end: '2026-05-31', cat: 'labor', url: 'posts/자녀장려금-신청-2026.html', desc: '근로장려금과 동시 신청 — 자녀 1인당 최대 100만원' },
+  { name: '에너지바우처 하절기 신청', period: '5월~6월', end: '2026-09-30', cat: 'energy', url: 'posts/에너지바우처-2026.html', desc: '냉방비 지원 (7~9월 사용) — 기초수급·차상위 대상' },
+  // 6월
+  { name: '청년 월세 지원 신청', period: '6월~(수시)', end: '2026-12-31', cat: 'youth', url: 'posts/청년-월세-지원금-2026.html', desc: '만 19~34세 무주택 청년 월 최대 20만원 — 예산 소진 시 마감' },
+  { name: '국가장학금 2학기 신청', period: '6월~7월중순', end: '2026-07-20', cat: 'edu', url: 'posts/국가장학금-신청-방법-2026.html', desc: '2학기 등록금 지원 — 1학기 미신청자도 가능' },
+  // 7월
+  { name: '근로장려금 반기 신청(상반기)', period: '7월 1일~9월 15일', end: '2026-09-15', cat: 'labor', url: 'posts/근로장려금-신청-2026.html', desc: '반기 신청자는 소득 확인 후 12월 지급' },
+  { name: 'K-패스 신규 신청', period: '연중 상시', end: '2026-12-31', cat: 'youth', url: 'posts/케이패스-신청-방법-2026.html', desc: '대중교통 월 15회 이상 이용 시 청년 30% 환급' },
+  // 8월
+  { name: '복지멤버십 신청 (연중 상시)', period: '연중 상시', end: '2026-12-31', cat: 'basic', url: 'posts/복지멤버십-신청-방법-2026.html', desc: '복지로에서 무료 가입 — 내 조건에 맞는 급여 자동 안내' },
+  // 9월
+  { name: '에너지바우처 동절기 신청', period: '9월~10월', end: '2026-10-31', cat: 'energy', url: 'posts/에너지바우처-2026.html', desc: '난방비 지원 (10월~익년 2월) — 기초수급 노인·장애인·영유아 우선' },
+  { name: '국민취업지원제도 신청 (연중)', period: '연중 상시', end: '2026-12-31', cat: 'labor', url: 'posts/국민취업지원제도-2026.html', desc: '구직촉진수당 월 50만원 최대 6개월 — 선착순 마감 있음' },
+  // 10월
+  { name: '국가장학금 2학기 후속 신청', period: '10월', end: '2026-10-31', cat: 'edu', url: 'posts/국가장학금-신청-방법-2026.html', desc: '2학기 신청 놓친 경우 일부 재신청 기회 제공' },
+  // 11월
+  { name: '근로장려금 반기 신청(하반기)', period: '11월 1일~12월 15일', end: '2026-12-15', cat: 'labor', url: 'posts/근로장려금-신청-2026.html', desc: '하반기 소득분 반기 신청 — 익년 6월 지급' },
+  // 12월
+  { name: '기초생활수급자 연중 상시 신청', period: '연중 상시', end: '2026-12-31', cat: 'basic', url: 'posts/기초생활수급자-신청-2026.html', desc: '주민센터 방문 또는 복지로 온라인 — 연중 언제든 신청 가능' },
+  { name: '주거급여 연중 상시 신청', period: '연중 상시', end: '2026-12-31', cat: 'basic', url: 'posts/주거급여-신청-방법-2026.html', desc: '중위소득 48% 이하 무주택 임차가구 — 연중 신청 가능' },
+  { name: '기초연금 연중 상시 신청', period: '연중 상시', end: '2026-12-31', cat: 'senior', url: 'posts/기초연금-신청-방법-2026.html', desc: '만 65세 이상 소득 하위 70% — 주민센터 상시 신청' },
+  { name: '아동수당 연중 상시 신청', period: '연중 상시', end: '2026-12-31', cat: 'child', url: 'posts/아동수당-신청-방법-2026.html', desc: '만 8세 미만 소득 무관 — 출생신고와 함께 신청 가능' },
+  { name: '부모급여 연중 상시 신청', period: '연중 상시', end: '2026-12-31', cat: 'child', url: 'posts/부모급여-신청-방법-2026.html', desc: '만 0~1세 소득 무관 — 출생신고와 함께 신청 가능' },
+];
+
+const MONTH_NAMES = ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'];
+const CAT_LABELS = { youth:'청년', basic:'기초생활', labor:'근로·소득', senior:'노인', child:'아동·출산', edu:'교육', energy:'에너지' };
+
+const now = new Date();
+let currentFilter = 'all';
+
+function getDday(endDateStr) {
+  const end = new Date(endDateStr);
+  const diff = Math.ceil((end - now) / (1000 * 60 * 60 * 24));
+  return diff;
+}
+
+function getDdayClass(diff) {
+  if (diff < 0) return 'past';
+  if (diff <= 7) return 'urgent';
+  if (diff <= 30) return 'soon';
+  return 'normal';
+}
+
+function getDdayLabel(diff) {
+  if (diff < 0) return '마감';
+  if (diff === 0) return 'D-day';
+  return 'D-' + diff;
+}
+
+function getMonthFromPeriod(ev) {
+  if (ev.end === '2026-12-31') return 12;
+  const d = new Date(ev.end);
+  return d.getMonth() + 1;
+}
+
+function renderCalendar(filter) {
+  const body = document.getElementById('calendarBody');
+  const filtered = filter === 'all' ? EVENTS : EVENTS.filter(e => e.cat === filter);
+
+  // 월별 그룹
+  const byMonth = {};
+  for (let m = 1; m <= 12; m++) byMonth[m] = [];
+  filtered.forEach(ev => {
+    const m = getMonthFromPeriod(ev);
+    byMonth[m].push(ev);
+  });
+
+  let html = '';
+  for (let m = 1; m <= 12; m++) {
+    const events = byMonth[m];
+    if (!events.length) continue;
+
+    const monthNum = now.getMonth() + 1;
+    let badgeCls = 'upcoming';
+    let badgeTxt = '예정';
+    if (m < monthNum) { badgeCls = 'past'; badgeTxt = '마감'; }
+    if (m === monthNum) { badgeCls = 'current'; badgeTxt = '이번 달'; }
+
+    html += '<div class="month-section" data-month="' + m + '">';
+    html += '<div class="month-header">';
+    html += '<div class="month-label">' + m + '월</div>';
+    html += '<div class="month-badge ' + badgeCls + '">' + badgeTxt + '</div>';
+    html += '</div>';
+    html += '<div class="event-list">';
+
+    events.forEach(ev => {
+      const diff = getDday(ev.end);
+      const cls = getDdayClass(diff);
+      const label = getDdayLabel(diff);
+      html += '<a href="' + ev.url + '" class="event-card ' + cls + '" data-cat="' + ev.cat + '">';
+      html += '<div class="event-date-col">';
+      html += '<div class="event-period">' + ev.period + '</div>';
+      html += '<div class="event-dday ' + cls + '">' + label + '</div>';
+      html += '</div>';
+      html += '<div class="event-info">';
+      html += '<div class="event-name">' + ev.name + '</div>';
+      html += '<div class="event-desc">' + ev.desc + '</div>';
+      html += '<span class="event-cat cat-' + ev.cat + '">' + CAT_LABELS[ev.cat] + '</span>';
+      html += '</div>';
+      html += '</a>';
+    });
+
+    html += '</div></div>';
+  }
+
+  body.innerHTML = html || '<div style="text-align:center;padding:40px;color:var(--text-sub);">해당 카테고리의 일정이 없습니다.</div>';
+}
+
+function renderSummary() {
+  const urgent = EVENTS.filter(e => { const d = getDday(e.end); return d >= 0 && d <= 7; }).length;
+  const soon = EVENTS.filter(e => { const d = getDday(e.end); return d > 7 && d <= 30; }).length;
+  const total = EVENTS.filter(e => getDday(e.end) >= 0).length;
+
+  const grid = document.getElementById('summaryGrid');
+  grid.innerHTML = `
+    <div class="summary-card red"><div class="summary-num">${urgent}</div><div class="summary-label">7일 이내 마감</div></div>
+    <div class="summary-card orange"><div class="summary-num">${soon}</div><div class="summary-label">30일 이내 마감</div></div>
+    <div class="summary-card"><div class="summary-num">${total}</div><div class="summary-label">신청 가능한 지원금</div></div>
+    <div class="summary-card"><div class="summary-num">${EVENTS.length}</div><div class="summary-label">전체 등록 일정</div></div>
+  `;
+}
+
+function filterEvents(cat, btn) {
+  currentFilter = cat;
+  document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  renderCalendar(cat);
+}
+
+renderSummary();
+renderCalendar('all');
+</script>
+
+</body>
+</html>
