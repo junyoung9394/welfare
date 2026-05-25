@@ -70,6 +70,14 @@
     .cat-card .cat-icon { font-size:2rem; margin-bottom:8px; }
     .cat-card .cat-name { font-size:0.9rem; font-weight:700; color:var(--text); }
     @media(max-width:600px){ .post-grid { grid-template-columns:1fr 1fr; } .cat-grid { grid-template-columns:1fr 1fr; } }
+    /* 네비 드롭다운 */
+    .nav-dropdown { position:relative; }
+    .nav-dropdown-trigger { cursor:pointer; }
+    .nav-dropdown-menu { display:none; position:absolute; top:calc(100% + 8px); left:50%; transform:translateX(-50%); background:#fff; border:1px solid var(--border); border-radius:10px; box-shadow:0 8px 24px rgba(0,0,0,0.12); min-width:160px; padding:6px 0; z-index:200; }
+    .nav-dropdown-menu a { display:block; padding:9px 18px; font-size:0.88rem; font-weight:600; color:var(--text); text-decoration:none; white-space:nowrap; transition:background 0.15s; }
+    .nav-dropdown-menu a:hover { background:var(--primary-light); color:var(--primary); }
+    .nav-dropdown:hover .nav-dropdown-menu { display:block; }
+    @media(max-width:600px){ .nav-dropdown-menu { left:auto; right:0; transform:none; } }
   </style>
 </head>
 <body>
@@ -85,7 +93,15 @@
       <a href="search.html">지원금 검색</a>
       <a href="calculator.html">수령액 계산</a>
       <a href="welfare-calendar.html">신청 캘린더</a>
-      <a href="#posts">전체 목록</a>
+      <div class="nav-dropdown">
+        <a href="#posts" class="nav-dropdown-trigger">카테고리 ▾</a>
+        <div class="nav-dropdown-menu">
+          <a href="청년-지원금.html">🎓 청년 지원금</a>
+          <a href="노인-복지.html">👴 노인 복지</a>
+          <a href="장애인-복지.html">♿ 장애인 복지</a>
+          <a href="지역별-복지.html">🗺️ 지역별 복지</a>
+        </div>
+      </div>
     </nav>
   </div>
 </header>
