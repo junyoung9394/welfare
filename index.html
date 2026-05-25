@@ -61,6 +61,24 @@
     .dl-badge.urgent { background:#fee2e2; color:#dc2626; }
     .dl-badge.soon   { background:#fef3c7; color:#d97706; }
     .dl-badge.normal { background:#dcfce7; color:#16a34a; }
+    /* 네비 드롭다운 */
+    .nav-dropdown { position:relative; }
+    .nav-dropdown-trigger { cursor:pointer; }
+    .nav-dropdown-menu { display:none; position:absolute; top:calc(100% + 8px); left:50%; transform:translateX(-50%); background:#fff; border:1px solid var(--border); border-radius:10px; box-shadow:0 8px 24px rgba(0,0,0,0.12); min-width:160px; padding:6px 0; z-index:200; }
+    .nav-dropdown-menu a { display:block; padding:9px 18px; font-size:0.88rem; font-weight:600; color:var(--text); text-decoration:none; white-space:nowrap; transition:background 0.15s; }
+    .nav-dropdown-menu a:hover { background:var(--primary-light); color:var(--primary); }
+    .nav-dropdown:hover .nav-dropdown-menu { display:block; }
+    /* 허브 스트립 */
+    .hub-strip { background:#f0f6ff; border-bottom:1px solid #d1e3fa; padding:20px; }
+    .hub-strip-inner { max-width:1100px; margin:0 auto; }
+    .hub-strip-label { font-size:0.8rem; font-weight:700; color:var(--primary); text-transform:uppercase; letter-spacing:0.04em; margin-bottom:12px; }
+    .hub-cards { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
+    .hub-card { display:flex; flex-direction:column; align-items:center; text-align:center; text-decoration:none; background:#fff; border:1px solid #d1e3fa; border-radius:12px; padding:16px 10px; transition:all 0.2s; }
+    .hub-card:hover { border-color:var(--primary); box-shadow:0 4px 14px rgba(26,111,196,0.15); transform:translateY(-2px); }
+    .hub-card-icon { font-size:1.8rem; margin-bottom:6px; }
+    .hub-card-name { font-size:0.92rem; font-weight:800; color:var(--text); margin-bottom:3px; }
+    .hub-card-desc { font-size:0.76rem; color:var(--text-sub); }
+    @media(max-width:600px){ .hub-cards { grid-template-columns:repeat(2,1fr); } .nav-dropdown-menu { left:auto; right:0; transform:none; } }
     /* 계산기 사이드바 카드 */
     .calc-promo { background:linear-gradient(135deg,#0f4c8a,#1a6fc4); color:#fff; border:none !important; }
     .calc-promo .sidebar-title { color:#fff; border-color:rgba(255,255,255,0.2) !important; }
@@ -82,7 +100,15 @@
       <a href="search.html">지원금 검색</a>
       <a href="calculator.html">수령액 계산</a>
       <a href="welfare-calendar.html">신청 캘린더</a>
-      <a href="#categories">카테고리</a>
+      <div class="nav-dropdown">
+        <a href="#categories" class="nav-dropdown-trigger">카테고리 ▾</a>
+        <div class="nav-dropdown-menu">
+          <a href="청년-지원금.html">🎓 청년 지원금</a>
+          <a href="노인-복지.html">👴 노인 복지</a>
+          <a href="장애인-복지.html">♿ 장애인 복지</a>
+          <a href="지역별-복지.html">🗺️ 지역별 복지</a>
+        </div>
+      </div>
     </nav>
   </div>
 </header>
@@ -100,11 +126,41 @@
     <button onclick="doSearch()">검색</button>
   </div>
   <div class="hero-tags">
+    <a href="청년-지원금.html">🎓 청년 지원금</a>
+    <a href="노인-복지.html">👴 노인 복지</a>
+    <a href="장애인-복지.html">♿ 장애인 복지</a>
+    <a href="지역별-복지.html">🗺️ 지역별</a>
     <a href="posts/복지-중복수혜-조합-2026.html">#중복수혜조합</a>
-    <a href="posts/기초수급-탈락-이유-대처법-2026.html">#탈락이유분석</a>
-    <a href="search.html?cat=근로">근로장려금</a>
-    <a href="search.html?cat=기초생활">기초생활수급</a>
-    <a href="welfare-calendar.html">신청 마감 캘린더</a>
+    <a href="welfare-calendar.html">📅 신청 캘린더</a>
+  </div>
+</section>
+
+<!-- 카테고리 허브 -->
+<section class="hub-strip">
+  <div class="hub-strip-inner">
+    <p class="hub-strip-label">내 상황에 맞는 카테고리를 선택하세요</p>
+    <div class="hub-cards">
+      <a href="청년-지원금.html" class="hub-card">
+        <span class="hub-card-icon">🎓</span>
+        <span class="hub-card-name">청년 지원금</span>
+        <span class="hub-card-desc">월세·청약·저축·취업 23개</span>
+      </a>
+      <a href="노인-복지.html" class="hub-card">
+        <span class="hub-card-icon">👴</span>
+        <span class="hub-card-name">노인 복지</span>
+        <span class="hub-card-desc">기초연금·일자리·요양 14개</span>
+      </a>
+      <a href="장애인-복지.html" class="hub-card">
+        <span class="hub-card-icon">♿</span>
+        <span class="hub-card-name">장애인 복지</span>
+        <span class="hub-card-desc">연금·활동지원·금융 12개</span>
+      </a>
+      <a href="지역별-복지.html" class="hub-card">
+        <span class="hub-card-icon">🗺️</span>
+        <span class="hub-card-name">지역별 복지</span>
+        <span class="hub-card-desc">서울·경기·부산 등 13개</span>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -144,15 +200,15 @@
     <section id="categories">
       <h2 class="section-title">카테고리별 지원금</h2>
       <div class="category-grid">
-        <div class="cat-card" data-cat="청년" onclick="location.href='search.html?cat=청년'"><div class="cat-icon">🎓</div><div class="cat-name">청년</div><div class="cat-count">월세·저축·취업</div></div>
+        <div class="cat-card" data-cat="청년" onclick="location.href='청년-지원금.html'"><div class="cat-icon">🎓</div><div class="cat-name">청년</div><div class="cat-count">월세·저축·취업</div></div>
         <div class="cat-card" data-cat="근로·소득" onclick="location.href='search.html?cat=근로'"><div class="cat-icon">💼</div><div class="cat-name">근로·소득</div><div class="cat-count">근로장려금·EITC</div></div>
         <div class="cat-card" data-cat="한부모" onclick="location.href='search.html?cat=한부모'"><div class="cat-icon">👨‍👧</div><div class="cat-name">한부모·가족</div><div class="cat-count">양육비·생계지원</div></div>
         <div class="cat-card" data-cat="기초생활" onclick="location.href='search.html?cat=기초생활'"><div class="cat-icon">🏠</div><div class="cat-name">기초생활</div><div class="cat-count">생계·주거·의료</div></div>
-        <div class="cat-card" data-cat="노인" onclick="location.href='search.html?cat=노인'"><div class="cat-icon">👴</div><div class="cat-name">노인·어르신</div><div class="cat-count">기초연금·돌봄</div></div>
-        <div class="cat-card" data-cat="장애인" onclick="location.href='search.html?cat=장애인'"><div class="cat-icon">♿</div><div class="cat-name">장애인</div><div class="cat-count">활동지원·급여</div></div>
+        <div class="cat-card" data-cat="노인" onclick="location.href='노인-복지.html'"><div class="cat-icon">👴</div><div class="cat-name">노인·어르신</div><div class="cat-count">기초연금·돌봄</div></div>
+        <div class="cat-card" data-cat="장애인" onclick="location.href='장애인-복지.html'"><div class="cat-icon">♿</div><div class="cat-name">장애인</div><div class="cat-count">활동지원·급여</div></div>
         <div class="cat-card" data-cat="에너지" onclick="location.href='search.html?cat=에너지'"><div class="cat-icon">💡</div><div class="cat-name">에너지바우처</div><div class="cat-count">냉·난방비 지원</div></div>
         <div class="cat-card" data-cat="소상공인" onclick="location.href='search.html?cat=소상공인'"><div class="cat-icon">🏪</div><div class="cat-name">소상공인</div><div class="cat-count">정책자금·특례</div></div>
-        <div class="cat-card" data-cat="문화" onclick="location.href='search.html?cat=문화'"><div class="cat-icon">🎭</div><div class="cat-name">문화·여가</div><div class="cat-count">문화누리카드</div></div>
+        <div class="cat-card" onclick="location.href='지역별-복지.html'"><div class="cat-icon">🗺️</div><div class="cat-name">지역별 복지</div><div class="cat-count">서울·경기·부산 등</div></div>
         <div class="cat-card" onclick="location.href='posts/차상위계층-대출-금융지원-2026.html'"><div class="cat-icon">💳</div><div class="cat-name">금융지원</div><div class="cat-count">대출·신용·보험</div></div>
         <div class="cat-card" onclick="location.href='welfare-calendar.html'"><div class="cat-icon">📅</div><div class="cat-name">신청 캘린더</div><div class="cat-count">마감일 D-day</div></div>
       </div>
@@ -1227,9 +1283,11 @@
     <div class="sidebar-card">
       <div class="sidebar-title">🗺️ 지역별 지원금</div>
       <ul class="popular-list">
-        <li><span class="pop-num">서울</span><a href="posts/서울시-복지-지원금-2026.html">서울시 복지 지원금 총정리 2026</a></li>
-        <li><span class="pop-num">경기</span><a href="posts/경기도-복지-지원금-2026.html">경기도 복지 지원금 총정리 2026</a></li>
-        <li><span class="pop-num">전국</span><a href="posts/출산장려금-지역별-2026.html">출산장려금 지역별 비교 2026</a></li>
+        <li><span class="pop-num">전체</span><a href="지역별-복지.html" style="font-weight:700;color:var(--primary);">지역별 복지 허브 →</a></li>
+        <li><span class="pop-num">서울</span><a href="posts/서울시-복지-지원금-2026.html">서울시 복지 지원금</a></li>
+        <li><span class="pop-num">경기</span><a href="posts/경기도-복지-지원금-2026.html">경기도 복지 지원금</a></li>
+        <li><span class="pop-num">부산</span><a href="posts/부산시-복지-지원금-2026.html">부산시 복지 지원금</a></li>
+        <li><span class="pop-num">전국</span><a href="posts/출산장려금-지역별-2026.html">출산장려금 지역별 비교</a></li>
       </ul>
     </div>
 
@@ -1279,8 +1337,10 @@
     <div>
       <div style="font-weight:700;color:#dde3ed;margin-bottom:10px;">카테고리</div>
       <div class="footer-links">
-        <a href="search.html?cat=청년">청년 지원금</a>
-        <a href="search.html?cat=근로">근로·소득 지원</a>
+        <a href="청년-지원금.html">청년 지원금</a>
+        <a href="노인-복지.html">노인 복지</a>
+        <a href="장애인-복지.html">장애인 복지</a>
+        <a href="지역별-복지.html">지역별 복지</a>
         <a href="search.html?cat=기초생활">기초생활수급</a>
         <a href="search.html?cat=소상공인">소상공인 지원</a>
       </div>
