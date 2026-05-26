@@ -1399,5 +1399,12 @@
   window.addEventListener('scroll', function(){ btn.classList.toggle('visible', window.scrollY > 300); }, {passive: true});
 })();
 </script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js');
+  });
+}
+</script>
 </body>
 </html>
