@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#c47a1a"/>
+      <stop offset="100%" style="stop-color:#8f5510"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- 패턴 장식 -->
+  <circle cx="1050" cy="80" r="200" fill="rgba(255,255,255,0.05)"/>
+  <circle cx="150" cy="550" r="150" fill="rgba(255,255,255,0.05)"/>
+  <!-- 복지모아 브랜드 -->
+  <text x="60" y="65" font-family="sans-serif" font-size="28" fill="rgba(255,255,255,0.8)" font-weight="700">🏛️ 복지모아</text>
+  <!-- 이모지 (크게) -->
+  <text x="600" y="300" font-family="sans-serif" font-size="120" text-anchor="middle" dominant-baseline="middle">🗺️</text>
+  <!-- 제목 -->
+  <text x="600" y="430" font-family="sans-serif" font-size="56" fill="white" font-weight="800" text-anchor="middle">지역별 복지 총정리 2026</text>
+  <!-- 부제 -->
+  <text x="600" y="510" font-family="sans-serif" font-size="32" fill="rgba(255,255,255,0.8)" text-anchor="middle">welfare.luckygrampus.com</text>
+</svg>
