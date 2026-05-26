@@ -26,6 +26,9 @@ STATIC_PAGES = [
     {"loc": f"{BASE_URL}/%EB%85%B8%EC%9D%B8-%EB%B3%B5%EC%A7%80.html", "lastmod": None, "changefreq": "weekly", "priority": "0.95"},
     {"loc": f"{BASE_URL}/%EC%9E%A5%EC%95%A0%EC%9D%B8-%EB%B3%B5%EC%A7%80.html", "lastmod": None, "changefreq": "weekly", "priority": "0.95"},
     {"loc": f"{BASE_URL}/%EC%A7%80%EC%97%AD%EB%B3%84-%EB%B3%B5%EC%A7%80.html", "lastmod": None, "changefreq": "weekly", "priority": "0.95"},
+    {"loc": f"{BASE_URL}/%EA%B8%B0%EC%B4%88%EC%83%9D%ED%99%9C%EC%88%98%EA%B8%89.html", "lastmod": None, "changefreq": "weekly", "priority": "0.95"},
+    {"loc": f"{BASE_URL}/%EA%B0%80%EC%A1%B1-%EC%B6%9C%EC%82%B0-%EC%A7%80%EC%9B%90.html", "lastmod": None, "changefreq": "weekly", "priority": "0.95"},
+    {"loc": f"{BASE_URL}/%EC%B7%A8%EC%97%85-%EA%B5%90%EC%9C%A1-%EC%A7%80%EC%9B%90.html", "lastmod": None, "changefreq": "weekly", "priority": "0.95"},
 ]
 
 
@@ -148,6 +151,24 @@ def build_feed(posts):
             "loc": f"{BASE_URL}/%EC%A7%80%EC%97%AD%EB%B3%84-%EB%B3%B5%EC%A7%80.html",
             "title": "지역별 복지 지원금 총정리 2026 — 내 지역 추가 혜택 확인",
             "desc": "2026년 서울·경기·부산 등 지역별 추가 복지 지원금 총정리.",
+            "date": datetime.now(KST).strftime('%Y-%m-%d'),
+        },
+        {
+            "loc": f"{BASE_URL}/%EA%B8%B0%EC%B4%88%EC%83%9D%ED%99%9C%EC%88%98%EA%B8%89.html",
+            "title": "기초생활수급 총정리 2026 — 생계·주거·의료급여·차상위 한눈에",
+            "desc": "2026년 기초생활수급자·차상위계층이 받을 수 있는 모든 복지 혜택 전체 목록.",
+            "date": datetime.now(KST).strftime('%Y-%m-%d'),
+        },
+        {
+            "loc": f"{BASE_URL}/%EA%B0%80%EC%A1%B1-%EC%B6%9C%EC%82%B0-%EC%A7%80%EC%9B%90.html",
+            "title": "가족·출산 지원금 총정리 2026 — 부모급여·아동수당·다자녀·한부모",
+            "desc": "2026년 임신·출산·육아·다자녀·한부모가족을 위한 정부 지원금 전체 목록.",
+            "date": datetime.now(KST).strftime('%Y-%m-%d'),
+        },
+        {
+            "loc": f"{BASE_URL}/%EC%B7%A8%EC%97%85-%EA%B5%90%EC%9C%A1-%EC%A7%80%EC%9B%90.html",
+            "title": "취업·교육 지원금 총정리 2026 — 실업급여·장학금·소상공인·바우처",
+            "desc": "2026년 취업준비·실업·교육훈련·소상공인을 위한 정부 지원금 전체 목록.",
             "date": datetime.now(KST).strftime('%Y-%m-%d'),
         },
     ]
