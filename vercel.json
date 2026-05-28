@@ -3,18 +3,14 @@
     "api/bokjiro.js": { "runtime": "nodejs20.x" },
     "api/work24.js":  { "runtime": "nodejs20.x" }
   },
-  "routes": [
+  "headers": [
     {
-      "src": "/feed.xml",
-      "dest": "/feed.xml",
-      "headers": { "Content-Type": "application/rss+xml; charset=UTF-8" }
+      "source": "/feed.xml",
+      "headers": [{ "key": "Content-Type", "value": "application/rss+xml; charset=UTF-8" }]
     },
     {
-      "src": "/sitemap.xml",
-      "dest": "/sitemap.xml",
-      "headers": { "Content-Type": "application/xml; charset=UTF-8" }
-    },
-    { "handle": "filesystem" },
-    { "src": "/(.*)", "dest": "/404.html", "status": 404 }
+      "source": "/sitemap.xml",
+      "headers": [{ "key": "Content-Type", "value": "application/xml; charset=UTF-8" }]
+    }
   ]
 }
