@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FF6B35</color>
+    <color name="colorPrimaryDark">#C84B11</color>
+    <color name="main_bg">#FFF5EE</color>
+    <color name="main_point">#FF6B35</color>
+    <color name="soft_point">#FFD4BC</color>
+    <color name="card_bg">#FFFFFF</color>
+    <color name="text_primary">#1A1A1A</color>
+    <color name="text_secondary">#888888</color>
+    <color name="star_color">#FFB800</color>
+    <color name="header_bg">#FF6B35</color>
+    <color name="divider">#F0E6DC</color>
+    <color name="button_delete">#E53935</color>
+    <color name="section_bg">#FFF9F5</color>
+    <color name="border_color">#E8D5C4</color>
+</resources>
