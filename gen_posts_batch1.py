@@ -132,10 +132,6 @@ def make_post(filename, title, short_title, desc, og_desc, cat_label, bc_cat, bc
     </nav>
   </div>
 </header>
-<div style="text-align:center;padding:8px 0;background:#fff;border-bottom:1px solid #dde3ed;">
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8518556382646891" data-ad-slot="4593096138" data-ad-format="auto" data-full-width-responsive="true"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({{}});</script>
-</div>
 
 <div class="post-wrap">
   <div class="post-header">
