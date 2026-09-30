@@ -76,6 +76,7 @@
     .calc-banner a { display:inline-block; background:#fff; color:#1a6fc4; font-weight:800; font-size:0.82rem; padding:8px 16px; border-radius:8px; white-space:nowrap; }
     @media (max-width: 600px) { .filter-row { grid-template-columns: 1fr; } .calc-banner { flex-direction:column; align-items:flex-start; } }
   </style>
+<script defer src="/site-analytics.js"></script>
 </head>
 <body>
 
@@ -357,5 +358,6 @@ async function doFilter() {
   window.addEventListener('scroll', function(){ btn.classList.toggle('visible', window.scrollY > 300); }, {passive: true});
 })();
 </script>
+<div style="text-align:center;font-size:12px;padding:12px"><a href="/analytics-info.html">방문 통계 안내·설정</a></div>
 </body>
 </html>

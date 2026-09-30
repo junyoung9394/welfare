@@ -82,6 +82,7 @@
   "description": "청년월세 지원 심사 결과와 보완 서류 확인 방법을 안내합니다. 2026년 정기 신청 접수는 5월 29일 종료됐습니다."
 }</script>
 
+<script defer src="/site-analytics.js"></script>
 </head>
 <body>
 <header class="site-header">
@@ -154,5 +155,6 @@ function copyUrl(){navigator.clipboard.writeText(location.href).then(function(){
 <script>function toggleFaq(btn){var item=btn.closest('.faq-item');item.classList.toggle('open');btn.setAttribute('aria-expanded',item.classList.contains('open'));}</script>
 <button id="back-to-top" aria-label="맨 위로" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 <script>(function(){var btn=document.getElementById('back-to-top');window.addEventListener('scroll',function(){btn.classList.toggle('visible',window.scrollY>300);},{passive:true});})();</script>
+<div style="text-align:center;font-size:12px;padding:12px"><a href="/analytics-info.html">방문 통계 안내·설정</a></div>
 </body>
 </html>
