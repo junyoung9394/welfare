@@ -1,2 +1,8 @@
 js/config.js
 __pycache__/
+
+.vercel/
+.env*
+
+.vercel
+.env*

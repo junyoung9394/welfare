@@ -71,6 +71,7 @@ def get_posts():
             "title": title or f.stem.replace('-', ' '),
             "desc": desc,
             "date": date_str or datetime.now(KST).strftime('%Y-%m-%d'),
+            "modified": (re.search(r'"dateModified":\s*"([^" ]+)"', html).group(1)[:10] if re.search(r'"dateModified":\s*"([^" ]+)"', html) else date_str),
         })
     return posts
 
@@ -97,7 +98,7 @@ def build_sitemap(posts):
         lines += [
             '  <url>',
             f'    <loc>{p["loc"]}</loc>',
-            f'    <lastmod>{p["date"]}</lastmod>',
+            f'    <lastmod>{p["modified"] or p["date"]}</lastmod>',
             '    <changefreq>monthly</changefreq>',
             '    <priority>0.9</priority>',
             '  </url>',

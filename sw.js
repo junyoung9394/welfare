@@ -1,4 +1,4 @@
-const CACHE_NAME = 'bokjimoa-v1';
+const CACHE_NAME = 'bokjimoa-20260930';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
@@ -27,6 +27,7 @@ self.addEventListener('activate', event => {
 self.addEventListener('fetch', event => {
   const { request } = event;
   const url = new URL(request.url);
+  if (request.method !== 'GET' || url.origin !== self.location.origin) return;
 
   // HTML 요청: Network First
   if (request.headers.get('accept')?.includes('text/html')) {

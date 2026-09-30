@@ -238,6 +238,7 @@
 
   <h1 class="section-title" style="font-size:1.4rem;margin-bottom:4px;">지원금 수령액 계산기</h1>
   <p style="font-size:0.88rem;color:var(--text-sub);margin-bottom:28px;">내 조건을 입력하면 받을 수 있는 지원금과 예상 금액을 계산해드립니다. (2026년 기준)</p>
+  <p style="font-size:0.88rem">신규 가입이 종료된 청년도약계좌와 2026년 정기 접수가 끝난 청년월세 지원은 계산에서 제외합니다. 실제 자격과 금액은 각 사업 심사로 확정됩니다.</p>
 
   <!-- 진행 표시 -->
   <div class="step-progress" id="stepProgress">
@@ -494,16 +495,16 @@ function updateIncomeDisplay() {
 const BENEFITS_DB = [
   {
     icon: '🏠', name: '청년 월세 지원금', url: 'posts/청년-월세-지원금-2026.html',
-    desc: '무주택 청년 월세 지원',
-    condition: s => s.age === 'youth' && s.income <= 120,
-    amountFn: s => ({ num: '월 최대 20만원', period: '최대 12개월', total: '최대 240만원' }),
+    desc: '2026년 정기 접수 종료',
+    condition: () => false, // 정기 접수 종료: 신규 수령액 추정에서 제외
+    amountFn: s => ({ num: '월 최대 20만원', period: '최대 24개월', total: '최대 480만원' }),
     highlight: true
   },
   {
     icon: '💰', name: '청년도약계좌', url: 'posts/청년도약계좌-2026.html',
-    desc: '5년 만기 목돈 마련',
-    condition: s => s.age === 'youth' && s.income <= 600,
-    amountFn: s => ({ num: '정부기여금 최대 월 2.4만원', period: '5년', total: '만기 최대 5,000만원' }),
+    desc: '신규 가입 종료·기존 가입자 안내',
+    condition: () => false, // 2025년 말 신규 가입 종료
+    amountFn: s => ({ num: '정부기여금 최대 월 3.3만원', period: '5년', total: '소득·납입액별 상이' }),
     highlight: false
   },
   {
